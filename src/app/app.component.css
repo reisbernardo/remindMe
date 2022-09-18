@@ -1,0 +1,21 @@
+.container-box{
+    width: 400px;
+    height: 800px;
+    border: solid 0.1px grey;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.header{
+    background-color: #FFF8BC;
+    margin: 0;
+    padding: 20px 0 20px;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 8px;
+    color: #414141CC;
+}
+
+.content{
+    padding: 0 15px 0 15px;
+}
