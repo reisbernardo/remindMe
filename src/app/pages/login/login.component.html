@@ -1,0 +1,51 @@
+<h2 *ngIf="!isLogin">Registrar</h2>
+<h2 *ngIf="isLogin">Logar</h2>
+
+<hr>
+    
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="E-mail*">
+        <span 
+            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+            class="help-block">Por favor, digite um email válido!</span>
+    </div>
+
+    <div class="form-group">
+        <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Senha*">
+        <span 
+            *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+            class="help-block">Senha deve ter 4 caracteres ou mais!</span>
+    </div>
+
+    <div class="form-group" *ngIf="!isLogin">
+        <input
+            type="password"
+            id="password"
+            formControlName="confirm-password"
+            class="form-control"
+            placeholder="Confirme sua senha*">
+        <span 
+            *ngIf="(signupForm.get('password').value != signupForm.get('confirm-password').value) && signupForm.get('confirm-password').touched"
+            class="help-block">As senhas devem ser iguais!</span>
+    </div>
+    <div class="center">
+        <button class="btn btn-primary main-button register-button" type="submit" *ngIf="!isLogin">Registrar</button>
+        <button class="btn btn-primary main-button" type="submit" *ngIf="isLogin">Logar</button>
+    </div>
+</form>
+<div class="center">
+    <button class="btn btn-primary secondary-button" (click)="onChangeMode()" *ngIf="!isLogin">Eu já possuo conta</button>
+    <button class="btn btn-primary secondary-button" (click)="onChangeMode()" *ngIf="isLogin">Eu não possuo conta</button>    
+</div>
+
