@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { StepsService } from 'src/app/services/steps.service';
 
 
 @Component({
@@ -11,6 +12,8 @@ export class LoginComponent implements OnInit {
   signupForm: FormGroup;
   isLogin = true;
 
+  constructor(private stepsService: StepsService){}
+
   ngOnInit(): void {
       this.signupForm = new FormGroup({
           'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -21,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     console.log(this.signupForm.value);
+    this.stepsService.goTo("RemindMe", 1);
   }
 
   onChangeMode(){

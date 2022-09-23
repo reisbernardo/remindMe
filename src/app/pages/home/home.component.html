@@ -1,0 +1,8 @@
+
+<button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">Novo Perfil</button>
+
+<p>Perfis</p>
+
+<div *ngFor="let profile of getProfiles()">
+    <button class="btn btn-primary profile-button" (click)="onGoToProfile(profile)">{{ profile }}</button>
+</div>

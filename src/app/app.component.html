@@ -1,7 +1,10 @@
 <div class="container-box">
-    <h1 class="header">RemindMe</h1>
+    <h1 class="header">{{ getHeader() }}</h1>
     <div class="content">
-        <app-login></app-login>
+        <app-login *ngIf="getStep() == 0"></app-login>
+        <app-home *ngIf="getStep() == 1"></app-home>
+        <app-new-profile *ngIf="getStep() == 11"></app-new-profile>
+        <app-profile *ngIf="getStep() == 2"></app-profile>
     </div>
 </div>
 

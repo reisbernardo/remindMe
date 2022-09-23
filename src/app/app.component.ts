@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StepsService } from './services/steps.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remindMe';
+
+  constructor(private stepsService: StepsService) {}
+
+  getStep(){
+    return this.stepsService.step;
+  }
+
+  getHeader(){
+    return this.stepsService.header;
+  }
 }
