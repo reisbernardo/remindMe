@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StepsService {
-  step = 11;
+  step = 0;
   header = "RemindMe";
   
   constructor() { }
