@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NewProfileComponent } from './pages/new-profile/new-profile.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
+import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { NewProfileComponent } from './pages/new-profile/new-profile.component';
     LoginComponent,
     HomeComponent,
     ProfileComponent,
-    NewProfileComponent,    
+    NewProfileComponent,
+    NewTaskComponent,
+    DailyTasksComponent,    
   ],
   imports: [
     BrowserModule,

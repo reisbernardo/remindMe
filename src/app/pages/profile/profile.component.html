@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<button class="btn btn-primary create-button" (click)="onGoToCreateTask()">Nova Tarefa</button>
+
+<p>Tarefas do Dia</p>
+<div *ngFor="let tarefa of getTarefas()">
+    <button 
+        class="btn btn-primary task-button" 
+        (click)="onGoToTarefa(tarefa)"
+        [ngClass]="{'remedios-button': tarefa === 'Remédios',
+                    'exercicios-button': tarefa === 'Exercícios',
+                    'recreacao-button': tarefa === 'Recreação'}"
+        >{{ tarefa }}
+        <li>1 Atividade(s) restante(s)</li>
+        </button>
+</div>

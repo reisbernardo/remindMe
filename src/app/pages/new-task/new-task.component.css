@@ -2,7 +2,34 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
-input{
+.input-task p{
+    font-weight: 700;
+    margin-left: 0;
+}
+
+p.remedios{
+    color: #00B45F;
+}
+
+p.exercicio{
+    color: #FF3939;
+}
+
+p.recreacao{
+    color: #FF3FF9;
+}
+
+.input-task{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 0 20px;
+}
+
+.selects{
+    margin: 10px 0 20px 0;
+}
+
+.form-control{
     background-color: #FFF8BC;
     border-color: #9A966F;
     border-radius: 20px;
@@ -19,18 +46,9 @@ span{
 
 p{
     margin-left: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-size: 30px;
     color: #4A4A4A;
-}
-
-.circle{
-    height: 140px;
-    width: 140px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    border: 1px solid #BEBEBE;
-    display: inline-block;
 }
 
 .center{
@@ -55,7 +73,7 @@ p{
     margin-left: -160px;
 }
 
-@media all and (max-height: 1000px) and (min-height: 620px) {
+@media all and (max-height: 1000px) and (min-height: 640px) {
     .margin {
         margin-bottom:50px;
     }

@@ -1,0 +1,9 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TasksService {
+  tasks = ["Remédios", "Exercícios", "Recreação"];
+  constructor() { }
+}
