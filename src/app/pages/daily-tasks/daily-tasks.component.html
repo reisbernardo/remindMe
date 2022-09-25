@@ -1,1 +1,22 @@
-<p>daily-tasks works!</p>
+<p>Tarefas do Dia</p>
+<div *ngFor="let tarefa of getTarefas()">
+    <button 
+        class="btn btn-primary task-button" 
+        [ngClass]="{'remedios-button': getHeader() === 'Remédios',
+                    'exercicios-button': getHeader() === 'Exercícios',
+                    'recreacao-button': getHeader() === 'Recreação'}">
+        {{ tarefa }}
+        <span [ngClass]="{'remedios-button-span': getHeader() === 'Remédios',
+                        'exercicios-button-span': getHeader() === 'Exercícios',
+                        'recreacao-button-span': getHeader() === 'Recreação'}"
+        >Todos os dias</span>
+    </button>
+    
+    <button 
+        class="btn btn-primary end-button"
+        [ngClass]="{'remedios-end': getHeader() === 'Remédios',
+                    'exercicios-end': getHeader() === 'Exercícios',
+                    'recreacao-end': getHeader() === 'Recreação'}">
+        Finalizar Tarefa
+    </button>
+</div>

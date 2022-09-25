@@ -1,15 +1,38 @@
 .header{
     background-color: #FFF8BC;
     margin: 0;
-    padding: 20px 0 20px;
-    font-weight: bolder;
-    border-radius: 8px;
-    color: #414141CC;
     height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 5px;
+}
+
+button{
+    margin: 5px 0 0 5px;
+    border-radius: 50%;
+    background-color: #FFF48F;
+    border: 0px solid transparent;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h1{
+    font-weight: bolder;
+    color: #414141CC;
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.remedios-header{
+    background-color: #CCFFE7;
+}
+
+.exercicios-header{
+    background-color: #FFDCDC;
+}
+
+.recreacao-header{
+    background-color: #FFC3FD;
 }
 
 .content{

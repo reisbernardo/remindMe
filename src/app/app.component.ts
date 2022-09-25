@@ -18,4 +18,8 @@ export class AppComponent {
   getHeader(){
     return this.stepsService.header;
   }
+
+  goBack(){
+    this.stepsService.goBack();
+  }
 }
