@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
-import { StepsService } from 'src/app/services/steps.service';
+import { StepsService } from 'src/app/services/steps/steps.service';
 
 @Component({
   selector: 'app-home',

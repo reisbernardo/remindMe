@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StepsService } from './services/steps.service';
+import { StepsService } from './services/steps/steps.service';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { StepsService } from 'src/app/services/steps.service';
+import { StepsService } from 'src/app/services/steps/steps.service';
 
 @Component({
   selector: 'app-new-task',
@@ -23,7 +23,7 @@ export class NewTaskComponent implements OnInit {
 
   onSubmit(){
     console.log(this.taskForm.value);
-    this.stepsService.goTo("Alguêm", 2);
+    this.stepsService.goTo(this.stepsService.previousHeader, 2);
   }
   
 }

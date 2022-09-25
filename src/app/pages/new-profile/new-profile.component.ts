@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { StepsService } from 'src/app/services/steps.service';
+import { StepsService } from 'src/app/services/steps/steps.service';
 
 @Component({
   selector: 'app-new-profile',
