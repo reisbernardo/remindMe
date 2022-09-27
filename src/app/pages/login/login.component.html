@@ -1,8 +1,10 @@
 <h2>{{isLogin ? 'Logar' : 'Registrar'}}</h2>
-
 <hr>
-    
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+<div class="alert alert-danger" *ngIf="error"><p>{{error}}</p></div>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
     <div class="form-group">
         <input
             type="text"
@@ -33,9 +35,6 @@
             type="submit"
             [disabled]="signupForm.invalid"
             >{{isLogin ? 'Logar' : 'Registrar'}}</button>
+        <button class="btn btn-primary secondary-button" (click)="onChangeMode()"> {{isLogin ? 'Eu não' : 'Eu já'}} possuo uma conta</button>
     </div>
 </form>
-<div class="center">
-    <button class="btn btn-primary secondary-button" (click)="onChangeMode()"> {{isLogin ? 'Eu não' : 'Eu já'}} possuo uma conta</button>
-</div>
-

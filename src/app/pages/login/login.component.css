@@ -2,6 +2,15 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+.alert{
+    padding: 10px;
+}
+
+app-loading-spinner{
+    text-align: center; 
+    display: block;
+}
+
 .center{
     text-align: center;
 }

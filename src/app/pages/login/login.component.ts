@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
 
 
@@ -12,6 +13,8 @@ import { StepsService } from 'src/app/services/steps/steps.service';
 export class LoginComponent implements OnInit {
   signupForm: FormGroup;
   isLogin = true;
+  isLoading = false;
+  error: string = null;
 
   constructor(
     private stepsService: StepsService,
@@ -26,22 +29,32 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     if(!this.signupForm.valid) return; 
+    this.error = null;
+    this.isLoading = true;
+
     const email = this.signupForm.value.email;
     const password = this.signupForm.value.password;
 
-    if(this.isLogin){
+    let authObs: Observable<AuthResponseData>;
 
+    if(this.isLogin){
+      authObs = this.authService.login(email, password);
     } else{
-        this.authService.signUp(email, password).subscribe(resData => {
-          console.log(resData);
-        },
-        error => {
-          console.log(error);
-        });
+      authObs = this.authService.signUp(email, password);
     }
 
+    authObs.subscribe(resData => {
+      console.log(resData);
+      this.isLoading = false;
+      },
+      errorMessage => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this.isLoading = false;
+      });
+
     this.signupForm.reset();
-    this.stepsService.goTo("RemindMe", 1);
+/*     if(this.error) this.stepsService.goTo("RemindMe", 1); */
   }
 
   onChangeMode(){

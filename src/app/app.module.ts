@@ -11,6 +11,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NewProfileComponent } from './pages/new-profile/new-profile.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
     NewProfileComponent,
     NewTaskComponent,
     DailyTasksComponent,    
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
