@@ -25,8 +25,12 @@ export class StepsService {
     } else if(this.step == 11 || this.step == 2){
       this.step = 1;
       this.header = "RemindMe";
-    } else if(this.step == 21 || this.step == 3){
-      this.step = 2
+    } else if(this.step == 21){
+      this.step = this.previousStep;  
+      this.header = this.previousHeader;
+    } else if(this.step == 3){
+      this.previousStep = this.step;
+      this.step = 2;
       this.header = this.previousHeader;
     }
   }

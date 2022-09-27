@@ -14,6 +14,7 @@ export class NewTaskComponent implements OnInit {
   constructor(private stepsService: StepsService) { }
 
   ngOnInit(): void {
+    console.log(this.task_selected);
     this.taskForm = new FormGroup({
       'task': new FormControl(this.task_selected),
       'task-name': new FormControl(null, [Validators.required, Validators.maxLength(30)]),
@@ -23,7 +24,7 @@ export class NewTaskComponent implements OnInit {
 
   onSubmit(){
     console.log(this.taskForm.value);
-    this.stepsService.goTo(this.stepsService.previousHeader, 2);
+    this.stepsService.goTo(this.stepsService.previousHeader, this.stepsService.previousStep);
   }
   
 }

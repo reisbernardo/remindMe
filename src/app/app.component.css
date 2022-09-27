@@ -6,12 +6,31 @@
 }
 
 button{
-    margin: 5px 0 0 5px;
+    margin: 5px 0 0 5px;    
     border-radius: 50%;
     background-color: #FFF48F;
     border: 0px solid transparent;
     color: black;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+img{
+    height: 32px;
+    width: 32px;
+    margin: 5px 0 0 5px; 
+    background-color: #FFF48F;
+    border-radius: 10px;
+}
+
+.dropdown-menu{
+    background-color: #FFF48F;
+    margin-left: 5px;
+}
+
+.dropdown-menu > li > a{
+    color: #414141CC;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 h1{

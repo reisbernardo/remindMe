@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       });
 
     this.signupForm.reset();
-/*     if(this.error) this.stepsService.goTo("RemindMe", 1); */
+    if(!this.error) this.stepsService.goTo("RemindMe", 1);
   }
 
   onChangeMode(){

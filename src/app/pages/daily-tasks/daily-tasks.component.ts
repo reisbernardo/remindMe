@@ -24,4 +24,8 @@ export class DailyTasksComponent implements OnInit {
     return this.stepsService.header;
   }
 
+  onClickEdit(){
+    this.stepsService.goTo('Nova Tarefa', 21);
+  }
+
 }

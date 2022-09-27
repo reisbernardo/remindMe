@@ -12,6 +12,7 @@ import { NewProfileComponent } from './pages/new-profile/new-profile.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     NewProfileComponent,
     NewTaskComponent,
     DailyTasksComponent,    
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
