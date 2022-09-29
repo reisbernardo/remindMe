@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
+import { Profile } from 'src/app/services/profiles/profile.model';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
 
@@ -11,17 +13,20 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private profilesService: ProfilesService,
-    private stepsService: StepsService ) { }
+    private stepsService: StepsService,
+    private dataStorageService: DataStorageService ) { }
 
   ngOnInit(): void {
   }
   
   getProfiles(){
-    return this.profilesService.profiles;
+    return this.profilesService.getProfiles();
   }
 
-  onGoToProfile(profile: string){
-    this.stepsService.goTo(profile, 2);
+  onGoToProfile(profile: Profile){
+    this.profilesService.profileSelected = profile;
+    this.dataStorageService.fetchData('tasks');
+    this.stepsService.goTo(profile.name, 2);
   }
 
   onGoToCreateProfile(){

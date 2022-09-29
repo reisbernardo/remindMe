@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getTarefas(){
-    return this.tasksService.tasks;
+    return this.tasksService.getTasks();
   }
 
 }

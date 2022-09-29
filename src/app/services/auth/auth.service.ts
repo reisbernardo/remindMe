@@ -15,7 +15,9 @@ export interface AuthResponseData {
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  user = new Subject<User>()
+  user = new Subject<User>();
+  token: string = null;
+  userId: string = null;
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +29,7 @@ export class AuthService {
       returnSecureToken: true
     }
     ).pipe(catchError(this.handleError), tap(resData => {
-      this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn)
+      this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
     }));
   }
 
@@ -38,13 +40,19 @@ export class AuthService {
       password: password,
       returnSecureToken: true
     }).pipe(catchError(this.handleError), tap(resData => {
-      this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn)
+      this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
     }));
+  }
+
+  logout(){
+    this.user.next(null);
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number){
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
+    this.token = token;
+    this.userId = userId;
     this.user.next(user);
   }
 

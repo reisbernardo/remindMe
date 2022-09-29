@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
+import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
 
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private stepsService: StepsService,
-    private authService: AuthService){}
+    private authService: AuthService,
+    private dataStorageService: DataStorageService){}
 
   ngOnInit(): void {
       this.signupForm = new FormGroup({
@@ -43,8 +45,8 @@ export class LoginComponent implements OnInit {
       authObs = this.authService.signUp(email, password);
     }
 
-    authObs.subscribe(resData => {
-      console.log(resData);
+    authObs.subscribe(() => {
+      this.dataStorageService.fetchData('profiles');
       this.isLoading = false;
       },
       errorMessage => {
@@ -54,7 +56,7 @@ export class LoginComponent implements OnInit {
       });
 
     this.signupForm.reset();
-    if(!this.error) this.stepsService.goTo("RemindMe", 1);
+    if(!this.error) this.stepsService.goTo("RemindMe", 1);    
   }
 
   onChangeMode(){

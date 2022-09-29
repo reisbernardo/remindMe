@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class StepsService {
   step = 0;
   header = "RemindMe";
   
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   goTo(h: string, s: number){
     this.previousStep = this.step;
@@ -22,6 +23,7 @@ export class StepsService {
     if(this.step == 1){
       this.step = 0;
       this.header = "RemindMe";
+      this.authService.logout();
     } else if(this.step == 11 || this.step == 2){
       this.step = 1;
       this.header = "RemindMe";
