@@ -1,23 +1,48 @@
 <p>Tarefas do Dia</p>
-<div *ngFor="let tarefa of getTarefas()">
-    <button 
-        class="btn btn-primary task-button" 
-        [ngClass]="{'remedios-button': getHeader() === 'Remédios',
-                    'exercicios-button': getHeader() === 'Exercícios',
-                    'recreacao-button': getHeader() === 'Recreação'}"
+
+<div *ngIf="getHeader() == 'Remédios'">
+    <div *ngFor="let tarefa of getTarefasRemedio()">
+        <button 
+        class="btn btn-primary task-button remedios-button" 
         (click)="onClickEdit()">
-        {{ tarefa }}
-        <span [ngClass]="{'remedios-button-span': getHeader() === 'Remédios',
-                        'exercicios-button-span': getHeader() === 'Exercícios',
-                        'recreacao-button-span': getHeader() === 'Recreação'}"
-        >Todos os dias</span>
+        {{ tarefa.taskName }}
+        <span class="remedios-button-span">Frequência: {{ tarefa.frequency }}</span>
     </button>
     
     <button 
-        class="btn btn-primary end-button"
-        [ngClass]="{'remedios-end': getHeader() === 'Remédios',
-                    'exercicios-end': getHeader() === 'Exercícios',
-                    'recreacao-end': getHeader() === 'Recreação'}">
+        class="btn btn-primary end-button remedios-end">
+        Finalizar Tarefa
+    </button>
+    </div>
+</div>
+
+<div *ngIf="getHeader() == 'Exercícios'">
+    <div *ngFor="let tarefa of getTarefasExercicio()">
+        <button 
+        class="btn btn-primary task-button exercicios-button" 
+        (click)="onClickEdit()">
+        {{ tarefa.taskName }}
+        <span class="exercicios-button-span">Frequência: {{ tarefa.frequency }}</span>
+    </button>
+    
+    <button 
+        class="btn btn-primary end-button exercicios-end">
+        Finalizar Tarefa
+    </button>
+    </div>
+</div>
+
+<div *ngIf="getHeader() == 'Recreações'">
+    <div *ngFor="let tarefa of getTarefasRecreacao()">
+        <button 
+        class="btn btn-primary task-button recreacao-button" 
+        (click)="onClickEdit()">
+        {{ tarefa.taskName }}
+        <span class="recreacao-button-span">Frequência: {{ tarefa.frequency }}</span>
+    </button>
+    
+    <button 
+        class="btn btn-primary end-button recreacao-end">
         Finalizar Tarefa
     </button>
 </div>

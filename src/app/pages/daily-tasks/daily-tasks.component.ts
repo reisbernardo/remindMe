@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StepsService } from 'src/app/services/steps/steps.service';
-import { TaskService } from 'src/app/services/tasks/task/task.service';
+import { TasksService } from 'src/app/services/tasks/tasks.service';
 
 @Component({
   selector: 'app-daily-tasks',
@@ -11,17 +11,31 @@ export class DailyTasksComponent implements OnInit {
 
   constructor(
     private stepsService: StepsService,
-    private taskService: TaskService) { }
+    private tasksService: TasksService) { }
 
   ngOnInit(): void {
   }
 
   getTarefas(){
-    return this.taskService.tasks;
+    // return this.taskService.tasks;
   }
 
   getHeader(){
     return this.stepsService.header;
+  }
+
+  getTarefasRemedio(){
+    console.log(this.tasksService.remedioTask);
+    return this.tasksService.remedioTask;
+  }
+
+  getTarefasExercicio(){
+    console.log(this.tasksService.exercicioTask)
+    return this.tasksService.exercicioTask;
+  }
+
+  getTarefasRecreacao(){
+    return this.tasksService.recreacaoTask;
   }
 
   onClickEdit(){

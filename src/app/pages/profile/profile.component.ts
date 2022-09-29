@@ -24,8 +24,16 @@ export class ProfileComponent implements OnInit {
     this.stepsService.goTo(task, 3);
   }
 
-  getTarefas(){
-    return this.tasksService.getTasks();
+  getTarefasRemedio(){
+    return this.tasksService.remedioTask;
+  }
+
+  getTarefasExercicio(){
+    return this.tasksService.exercicioTask;
+  }
+
+  getTarefasRecreacao(){
+    return this.tasksService.recreacaoTask;
   }
 
 }

@@ -44,19 +44,20 @@ export class LoginComponent implements OnInit {
     } else{
       authObs = this.authService.signUp(email, password);
     }
-
+    this.signupForm.reset()
     authObs.subscribe(() => {
       this.dataStorageService.fetchData('profiles');
-      this.isLoading = false;
+      setTimeout( () => { 
+        this.isLoading = false; 
+        this.stepsService.goTo("RemindMe", 1);
+      }, 500 );
+       
       },
       errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
       });
-
-    this.signupForm.reset();
-    if(!this.error) this.stepsService.goTo("RemindMe", 1);    
   }
 
   onChangeMode(){

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ProfilesService } from '../profiles/profiles.service';
 import { Task } from '../tasks/task.model';
 
 @Injectable({
@@ -7,18 +6,31 @@ import { Task } from '../tasks/task.model';
 })
 export class TasksService {
   private tasks: Task[] = [];
-  remediosTask: Task[] = [];
-  exerciciosTask: Task[] = [];
+  remedioTask: Task[] = [];
+  exercicioTask: Task[] = [];
   recreacaoTask: Task[] = [];
-  constructor(private profilesService: ProfilesService) { }
-
-  dividePerTask(element: Task, index: number, array: Task[]){
-    element.task;
-  }
+  constructor() { }
 
   setTasks(tasks: Task[]){
-    this.tasks = tasks;
-    this.tasks.forEach(this.dividePerTask);
+    if(tasks.length == 0){
+      this.tasks = [];
+      this.remedioTask = [];
+      this.exercicioTask = [];
+      this.recreacaoTask = [];
+    }
+    else{
+      this.tasks = tasks;
+      for(let i = 0; i < this.tasks.length; i++){
+        if(this.tasks[i].task == "Remédio"){
+          this.remedioTask.push(this.tasks[i]);        
+        } else if(this.tasks[i].task == "Exercício"){
+          this.exercicioTask.push(this.tasks[i]);
+        } else{
+          this.recreacaoTask.push(this.tasks[i]);
+        }
+      }
+    }
+
   }
 
   getTasks(){
@@ -27,7 +39,12 @@ export class TasksService {
 
   addTasks(task: Task){
     this.tasks.push(task);
-    console.log("this.tasks: ", this.tasks);
-    // this.profilesService.addTasks(this.tasks);
+    if(task.task == "Remédio"){
+      this.remedioTask.push(task);
+    } else if(task.task == "Exercício"){
+      this.exercicioTask.push(task);
+    } else{
+      this.recreacaoTask.push(task);
+    }
   }
 }

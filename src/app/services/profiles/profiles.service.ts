@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TasksService } from '../tasks/tasks.service';
 import { Profile } from './profile.model';
 
 @Injectable({
@@ -7,7 +6,6 @@ import { Profile } from './profile.model';
 })
 export class ProfilesService {
   private profiles: Profile[] = [];
-  private tasks: Task[] = []
   profileSelected: Profile;
   constructor() { }
 

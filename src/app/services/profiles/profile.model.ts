@@ -1,5 +1,3 @@
-import { Task } from '../tasks/task.model';
-
 export class Profile {
   public name: string
   public age: string

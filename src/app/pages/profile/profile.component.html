@@ -1,14 +1,24 @@
 <button class="btn btn-primary create-button" (click)="onGoToCreateTask()">Nova Tarefa</button>
 
 <p>Tarefas do Dia</p>
-<div *ngFor="let tarefa of getTarefas()">
-    <button 
-        class="btn btn-primary task-button" 
-        (click)="onGoToTarefa(tarefa)"
-        [ngClass]="{'remedios-button': tarefa === 'Remédios',
-                    'exercicios-button': tarefa === 'Exercícios',
-                    'recreacao-button': tarefa === 'Recreação'}"
-        >{{ tarefa }}
-        <li>1 Atividade(s) restante(s)</li>
-        </button>
-</div>
+<button 
+    class="btn btn-primary task-button remedios-button"
+    *ngIf="getTarefasRemedio().length > 0"
+    (click)="onGoToTarefa('Remédios')"
+    >Remédios
+    <li>{{getTarefasRemedio().length}} Atividade(s) restante(s)</li>
+</button>
+<button 
+    class="btn btn-primary task-button exercicios-button"
+    *ngIf="getTarefasExercicio().length > 0"
+    (click)="onGoToTarefa('Exercícios')"
+    >Exercícios
+    <li>{{getTarefasExercicio().length}} Atividade(s) restante(s)</li>
+</button>
+<button 
+    class="btn btn-primary task-button recreacao-button"
+    *ngIf="getTarefasRecreacao().length > 0"
+    (click)="onGoToTarefa('Recreações')"
+    >Recreações
+    <li>{{getTarefasRecreacao().length}} Atividade(s) restante(s)</li>
+</button>
