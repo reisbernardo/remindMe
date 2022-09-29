@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       setTimeout( () => { 
         this.isLoading = false; 
         this.stepsService.goTo("RemindMe", 1);
-      }, 500 );
+      }, 300 );
        
       },
       errorMessage => {

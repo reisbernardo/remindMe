@@ -26,3 +26,8 @@ p{
     height: 120px;
     margin-bottom: 9px;
 }
+
+app-loading-spinner{
+    text-align: center; 
+    display: block;
+}

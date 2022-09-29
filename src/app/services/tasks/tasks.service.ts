@@ -47,4 +47,15 @@ export class TasksService {
       this.recreacaoTask.push(task);
     }
   }
+
+  removeTasks(taskName: string, task: string){
+    this.tasks = this.tasks.filter(el => el.taskName !== taskName)
+    if(task == "Remédio"){
+      this.remedioTask = this.remedioTask.filter(el => el.taskName !== taskName)
+    } else if(task == "Exercício"){
+      this.exercicioTask = this.exercicioTask.filter(el => el.taskName !== taskName)
+    } else{
+      this.recreacaoTask = this.recreacaoTask.filter(el => el.taskName !== taskName)
+    }
+  }
 }

@@ -10,7 +10,7 @@ import { StepsService } from 'src/app/services/steps/steps.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  isLoading = false;
   constructor(
     private profilesService: ProfilesService,
     private stepsService: StepsService,
@@ -24,9 +24,13 @@ export class HomeComponent implements OnInit {
   }
 
   onGoToProfile(profile: Profile){
+    this.isLoading = true;
     this.profilesService.profileSelected = profile;
     this.dataStorageService.fetchData('tasks');
-    this.stepsService.goTo(profile.name, 2);
+    setTimeout( () => { 
+      this.isLoading = false; 
+      this.stepsService.goTo(profile.name, 2);
+    }, 300 );
   }
 
   onGoToCreateProfile(){

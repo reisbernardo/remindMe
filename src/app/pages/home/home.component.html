@@ -1,7 +1,13 @@
-<button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">Novo Perfil</button>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 
-<p>Perfis</p>
+<div *ngIf="!isLoading">
+    <button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">Novo Perfil</button>
 
-<div *ngFor="let profile of getProfiles()">
-    <button class="btn btn-primary profile-button" (click)="onGoToProfile(profile)">{{ profile.name }}</button>
+    <p>Perfis</p>
+    
+    <div *ngFor="let profile of getProfiles()">
+        <button class="btn btn-primary profile-button" (click)="onGoToProfile(profile)">{{ profile.name }}</button>
+    </div>
 </div>
+
+
