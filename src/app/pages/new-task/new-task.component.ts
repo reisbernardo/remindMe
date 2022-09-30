@@ -11,7 +11,7 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
-  @Input() task_selected: string;
+  
   taskForm: FormGroup;
   tasks = ["Remédio", "Exercício", "Recreação"];
   constructor(
@@ -21,19 +21,33 @@ export class NewTaskComponent implements OnInit {
     private profilesService: ProfilesService) { }
 
   ngOnInit(): void {
-    console.log(this.task_selected);
+    let taskSelected: string;
+    let taskNameSelected: string;
+    let taskFrequencySelected: number;
+    if(this.stepsService.previousStep == 3){
+      taskSelected = this.tasksService.taskSelected.task;
+      taskNameSelected = this.tasksService.taskSelected.taskName;
+      taskFrequencySelected = this.tasksService.taskSelected.frequency;
+    }
     this.taskForm = new FormGroup({
-      'task': new FormControl(this.task_selected),
-      'taskName': new FormControl(null, [Validators.required, Validators.maxLength(30)]),
-      'frequency': new FormControl(null, [Validators.required]),
+      'task': new FormControl(taskSelected),
+      'taskName': new FormControl(taskNameSelected, [Validators.required, Validators.maxLength(30)]),
+      'frequency': new FormControl(taskFrequencySelected, [Validators.required]),
   },);
   }
 
   onSubmit(){
-    console.log(this.taskForm.value);
-    this.tasksService.addTasks(this.taskForm.value);
-    this.dataStorageService.storeData('tasks');
-    this.stepsService.goTo(this.profilesService.profileSelected.name, this.stepsService.previousStep);
+    if(this.stepsService.previousStep == 3) {
+      this.tasksService.editTasks(this.taskForm.value);
+      this.dataStorageService.storeData('tasks');
+      this.stepsService.goBack();
+    }
+    else {
+      this.tasksService.addTasks(this.taskForm.value);
+      this.dataStorageService.storeData('tasks');
+      this.stepsService.goTo(this.profilesService.profileSelected.name, this.stepsService.previousStep);
+    }
+    
   }
   
 }

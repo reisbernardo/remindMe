@@ -21,7 +21,6 @@ export class DataStorageService {
     else if (data == 'tasks') {
       dataStore = this.tasksService.getTasks()
       data += this.profilesService.getProfileIndex().toString();
-      console.log('fetchData: ', data);
     }
     
     this.http.put('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth=' + this.authService.token, dataStore)
@@ -32,7 +31,6 @@ export class DataStorageService {
 
   fetchData(data: string){
     if (data == 'tasks') data += this.profilesService.getProfileIndex().toString();
-    console.log('fetchData: ', data);
     return this.http.get<any>('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth='  + this.authService.token)
     .subscribe(response => {
       if(response == null) response = []

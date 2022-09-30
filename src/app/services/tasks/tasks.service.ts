@@ -9,6 +9,7 @@ export class TasksService {
   remedioTask: Task[] = [];
   exercicioTask: Task[] = [];
   recreacaoTask: Task[] = [];
+  taskSelected: Task;
   constructor() { }
 
   setTasks(tasks: Task[]){
@@ -49,13 +50,25 @@ export class TasksService {
   }
 
   removeTasks(taskName: string, task: string){
-    this.tasks = this.tasks.filter(el => el.taskName !== taskName)
+    this.tasks = this.tasks.filter(el => el.taskName !== taskName);
     if(task == "Remédio"){
-      this.remedioTask = this.remedioTask.filter(el => el.taskName !== taskName)
+      this.remedioTask = this.remedioTask.filter(el => el.taskName !== taskName);
     } else if(task == "Exercício"){
-      this.exercicioTask = this.exercicioTask.filter(el => el.taskName !== taskName)
+      this.exercicioTask = this.exercicioTask.filter(el => el.taskName !== taskName);
     } else{
-      this.recreacaoTask = this.recreacaoTask.filter(el => el.taskName !== taskName)
+      this.recreacaoTask = this.recreacaoTask.filter(el => el.taskName !== taskName);
+    }
+  }
+
+  editTasks(task: Task){
+    let index = this.tasks.findIndex(x => x.taskName == this.taskSelected.taskName);
+    this.tasks[index] = task;
+    if(this.taskSelected.task == "Remédio"){
+      this.remedioTask[index] = task;
+    } else if(this.taskSelected.task == "Exercício"){
+      this.exercicioTask[index] = task;
+    } else{
+      this.recreacaoTask[index] = task;
     }
   }
 }

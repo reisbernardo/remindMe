@@ -1,4 +1,3 @@
-
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <p>Tipo da Tarefa</p>
     <div class="selects">
@@ -13,7 +12,6 @@
                 [value]="task">
           </div>
     </div>
-    
     
     <div class="form-group">
         <p>Tarefa</p>
@@ -33,12 +31,13 @@
             formControlName="frequency"
             class="form-control"
             placeholder="Ex . 70">
-        <span 
-            *ngIf="!taskForm.get('frequency').valid && taskForm.get('frequency').touched"
-            class="help-block">Por favor, digite uma idade válida!</span>
     </div>
     <div class="center bottom">
-        <button class="btn btn-primary main-button margin" type="submit">Adicionar Tarefa</button>
+        <button 
+            class="btn btn-primary main-button margin" 
+            type="submit" 
+            [disabled]="taskForm.invalid">
+            Adicionar Tarefa
+        </button>
     </div>
-    
 </form>

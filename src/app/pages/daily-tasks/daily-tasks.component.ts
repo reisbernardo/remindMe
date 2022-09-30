@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
 import { TasksService } from 'src/app/services/tasks/tasks.service';
+import { Task } from 'src/app/services/tasks/task.model';
 
 @Component({
   selector: 'app-daily-tasks',
@@ -19,8 +20,6 @@ export class DailyTasksComponent implements OnInit {
   }
 
   removeTarefa(tarefaNome: string, tarefa: string){
-    console.log("taskName", tarefaNome);
-    console.log("task", tarefa)
     this.tasksService.removeTasks(tarefaNome, tarefa);
     this.dataStorageService.storeData("tasks");
   }
@@ -30,12 +29,10 @@ export class DailyTasksComponent implements OnInit {
   }
 
   getTarefasRemedio(){
-    console.log(this.tasksService.remedioTask);
     return this.tasksService.remedioTask;
   }
 
   getTarefasExercicio(){
-    console.log(this.tasksService.exercicioTask)
     return this.tasksService.exercicioTask;
   }
 
@@ -43,7 +40,8 @@ export class DailyTasksComponent implements OnInit {
     return this.tasksService.recreacaoTask;
   }
 
-  onClickEdit(){
+  onClickEdit(tarefa: Task){
+    this.tasksService.taskSelected = tarefa;
     this.stepsService.goTo('Nova Tarefa', 21);
   }
 

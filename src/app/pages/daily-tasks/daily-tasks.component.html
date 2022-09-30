@@ -4,7 +4,7 @@
     <div *ngFor="let tarefa of getTarefasRemedio()">
         <button 
             class="btn btn-primary task-button remedios-button" 
-            (click)="onClickEdit()">
+            (click)="onClickEdit(tarefa)">
             {{ tarefa.taskName }}
             <span class="remedios-button-span">Frequência: {{ tarefa.frequency }}</span>
         </button>
@@ -21,7 +21,7 @@
     <div *ngFor="let tarefa of getTarefasExercicio()">
         <button 
         class="btn btn-primary task-button exercicios-button" 
-        (click)="onClickEdit()">
+        (click)="onClickEdit(tarefa)">
         {{ tarefa.taskName }}
         <span class="exercicios-button-span">Frequência: {{ tarefa.frequency }}</span>
     </button>
@@ -38,7 +38,7 @@
     <div *ngFor="let tarefa of getTarefasRecreacao()">
         <button 
         class="btn btn-primary task-button recreacao-button" 
-        (click)="onClickEdit()">
+        (click)="onClickEdit(tarefa)">
         {{ tarefa.taskName }}
         <span class="recreacao-button-span">Frequência: {{ tarefa.frequency }}</span>
     </button>

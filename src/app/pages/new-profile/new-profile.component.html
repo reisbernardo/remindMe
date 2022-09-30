@@ -27,7 +27,12 @@
             class="help-block">Por favor, digite uma idade válida!</span>
     </div>
     <div class="center bottom">
-        <button class="btn btn-primary main-button margin" type="submit">Adicionar Perfil</button>
+        <button 
+            class="btn btn-primary main-button margin" 
+            type="submit" 
+            [disabled]="profileForm.invalid">
+            Adicionar Perfil
+        </button>
     </div>
     
 </form>

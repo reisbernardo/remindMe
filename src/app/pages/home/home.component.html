@@ -6,7 +6,12 @@
     <p>Perfis</p>
     
     <div *ngFor="let profile of getProfiles()">
-        <button class="btn btn-primary profile-button" (click)="onGoToProfile(profile)">{{ profile.name }}</button>
+        <button 
+            class="btn btn-primary profile-button" 
+            (click)="onGoToProfile(profile)">
+            {{ profile.name }}
+            <span *ngIf="profile.age">{{ profile.age }} anos</span>
+        </button>
     </div>
 </div>
 
