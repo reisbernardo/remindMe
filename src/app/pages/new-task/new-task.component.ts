@@ -11,7 +11,7 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
-  
+  buttonLabel = 'Adicionar Tarefa';
   taskForm: FormGroup;
   tasks = ["Remédio", "Exercício", "Recreação"];
   constructor(
@@ -28,6 +28,7 @@ export class NewTaskComponent implements OnInit {
       taskSelected = this.tasksService.taskSelected.task;
       taskNameSelected = this.tasksService.taskSelected.taskName;
       taskFrequencySelected = this.tasksService.taskSelected.frequency;
+      this.buttonLabel = 'Alterar Tarefa';
     }
     this.taskForm = new FormGroup({
       'task': new FormControl(taskSelected),

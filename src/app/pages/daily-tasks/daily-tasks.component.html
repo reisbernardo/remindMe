@@ -1,62 +1,41 @@
 <p>Tarefas do Dia</p>
 
-<div *ngIf="getHeader() == 'Remédios'">
-    <div *ngFor="let tarefa of getTarefasRemedio()" class="card">
-        <button 
-            class="btn btn-primary task-button remedios-button" 
-            (click)="onClickEdit(tarefa)">
-            {{ tarefa.taskName }}
-            <div class="inline">
-                <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
-                <img class="icon icon-remedios" src="../../../assets/clock.svg" alt="Frequência">
-                <span class="remedios-button-span">Frequência: {{ tarefa.frequency }}</span>
-            </div>
-        </button>
-    
-        <button 
-            class="btn btn-primary end-button remedios-end"
-            (click)="removeTarefa(tarefa.taskName, tarefa.task)">
-            Finalizar Tarefa
-        </button>
-    </div>
-</div>
-
-<div *ngIf="getHeader() == 'Exercícios'">
-    <div *ngFor="let tarefa of getTarefasExercicio()" class="card">
-        <button 
-        class="btn btn-primary task-button exercicios-button" 
+<div *ngFor="let tarefa of getTarefas()" class="card">
+    <button 
+        class="btn btn-primary task-button"
+        [ngClass]="{'remedios-button': tarefa.task === 'Remédio',
+                    'exercicios-button': tarefa.task === 'Exercício',
+                    'recreacao-button': tarefa.task === 'Recreação'}" 
         (click)="onClickEdit(tarefa)">
         {{ tarefa.taskName }}
         <div class="inline">
-            <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
-            <img class="icon icon-exercicio" src="../../../assets/clock.svg" alt="Frequência">
-            <span class="exercicios-button-span">Frequência: {{ tarefa.frequency }}</span>
+            <img 
+                class="edit_icon" 
+                [ngClass]="{'icon-remedios': tarefa.task === 'Remédio',
+                            'icon-exercicio': tarefa.task === 'Exercício',
+                            'icon-recreacao': tarefa.task === 'Recreação'}"
+                src="../../../assets/edit.svg" 
+                alt="Editar Tarefa">
+            <img 
+                class="icon" 
+                [ngClass]="{'icon-remedios': tarefa.task === 'Remédio',
+                            'icon-exercicio': tarefa.task === 'Exercício',
+                            'icon-recreacao': tarefa.task === 'Recreação'}" 
+                src="../../../assets/clock.svg" 
+                alt="Frequência">
+            <span 
+                [ngClass]="{'remedios-button-span': tarefa.task === 'Remédio',
+                            'exercicios-button-span': tarefa.task === 'Exercício',
+                            'recreacao-button-span': tarefa.task === 'Recreação'}" 
+            >Frequência: {{ tarefa.frequency }}</span>
         </div>
     </button>
-    
-    <button 
-        class="btn btn-primary end-button exercicios-end"
-        (click)="removeTarefa(tarefa.taskName, tarefa.task)">
-        Finalizar Tarefa
-    </button>
-    </div>
-</div>
 
-<div *ngIf="getHeader() == 'Recreações'">
-    <div *ngFor="let tarefa of getTarefasRecreacao()" class="card">
-        <button 
-        class="btn btn-primary task-button recreacao-button" 
-        (click)="onClickEdit(tarefa)">
-        {{ tarefa.taskName }}
-        <div class="inline">
-            <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
-            <img class="icon icon-recreacao" src="../../../assets/clock.svg" alt="Frequência">
-            <span class="recreacao-button-span">Frequência: {{ tarefa.frequency }}</span>
-        </div>
-    </button>
-    
     <button 
-        class="btn btn-primary end-button recreacao-end"
+        class="btn btn-primary end-button"
+        [ngClass]="{'remedios-end': tarefa.task === 'Remédio',
+                    'exercicios-end': tarefa.task === 'Exercício',
+                    'recreacao-end': tarefa.task === 'Recreação'}" 
         (click)="removeTarefa(tarefa.taskName, tarefa.task)">
         Finalizar Tarefa
     </button>

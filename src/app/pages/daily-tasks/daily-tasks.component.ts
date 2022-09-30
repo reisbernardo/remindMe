@@ -22,27 +22,22 @@ export class DailyTasksComponent implements OnInit {
   removeTarefa(tarefaNome: string, tarefa: string){
     this.tasksService.removeTasks(tarefaNome, tarefa);
     this.dataStorageService.storeData("tasks");
+    if(this.getTarefas().length == 0) this.stepsService.goBack();
   }
 
-  getHeader(){
-    return this.stepsService.header;
-  }
-
-  getTarefasRemedio(){
-    return this.tasksService.remedioTask;
-  }
-
-  getTarefasExercicio(){
-    return this.tasksService.exercicioTask;
-  }
-
-  getTarefasRecreacao(){
-    return this.tasksService.recreacaoTask;
+  getTarefas(){
+    if(this.stepsService.header == "Remédios"){
+      return this.tasksService.remedioTask;
+    } else if(this.stepsService.header == "Exercícios"){
+      return this.tasksService.exercicioTask;
+    } else{
+      return this.tasksService.recreacaoTask;
+    }
   }
 
   onClickEdit(tarefa: Task){
     this.tasksService.taskSelected = tarefa;
-    this.stepsService.goTo('Nova Tarefa', 21);
+    this.stepsService.goTo('Alterar Tarefa', 21);
   }
 
 }

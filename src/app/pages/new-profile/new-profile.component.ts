@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
-import { Task } from 'src/app/services/tasks/task.model';
 
 @Component({
   selector: 'app-new-profile',
@@ -20,7 +19,7 @@ export class NewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.profileForm = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.maxLength(30)]),
-      'age': new FormControl(null, [Validators.maxLength(3), Validators.min(0)]),
+      'age': new FormControl(null, [Validators.maxLength(3), Validators.min(0), Validators.pattern("^[0-9]*$")]),
   },);
   }
 

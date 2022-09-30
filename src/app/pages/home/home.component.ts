@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     setTimeout( () => { 
       this.isLoading = false; 
       this.stepsService.goTo(profile.name, 2);
-    }, 300 );
+    }, 400 );
   }
 
   onGoToCreateProfile(){
