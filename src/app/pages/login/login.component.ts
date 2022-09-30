@@ -64,4 +64,8 @@ export class LoginComponent implements OnInit {
     this.signupForm.reset();
     this.isLogin = !this.isLogin
   }
+
+  onHandleError() {
+    this.error = null;
+  }
 }

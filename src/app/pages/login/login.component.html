@@ -1,7 +1,7 @@
 <h2>{{isLogin ? 'Logar' : 'Registrar'}}</h2>
 <hr>
 
-<div class="alert alert-danger" *ngIf="error"><p>{{error}}</p></div>
+<app-alert-modal *ngIf="error" [message]="error" (close)="onHandleError()"></app-alert-modal>
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">

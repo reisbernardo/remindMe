@@ -33,7 +33,7 @@ export class NewTaskComponent implements OnInit {
     this.taskForm = new FormGroup({
       'task': new FormControl(taskSelected),
       'taskName': new FormControl(taskNameSelected, [Validators.required, Validators.maxLength(30)]),
-      'frequency': new FormControl(taskFrequencySelected, [Validators.required]),
+      'frequency': new FormControl(taskFrequencySelected, [Validators.required, Validators.min(0), Validators.pattern("^[0-9]*$")]),
   },);
   }
 

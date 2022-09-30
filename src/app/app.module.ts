@@ -13,6 +13,7 @@ import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     NewTaskComponent,
     DailyTasksComponent,    
     LoadingSpinnerComponent,
-    DropdownDirective
+    DropdownDirective,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule,
