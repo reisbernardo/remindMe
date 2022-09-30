@@ -25,7 +25,6 @@ export class NewProfileComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.profileForm.value);
     this.profilesService.addProfile(this.profileForm.value);
     this.dataStorageService.storeData('profiles');
     this.stepsService.goTo("RemindMe", 1);

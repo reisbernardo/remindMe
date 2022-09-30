@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { ProfilesService } from '../profiles/profiles.service';
 import { TasksService } from '../tasks/tasks.service';
 
 @Injectable({
@@ -13,7 +14,8 @@ export class StepsService {
   
   constructor(
     private authService: AuthService,
-    private taskService: TasksService) { }
+    private taskService: TasksService,
+    private profilesService: ProfilesService) { }
 
   goTo(h: string, s: number){
     this.previousStep = this.step;
@@ -37,7 +39,7 @@ export class StepsService {
     } else if(this.step == 3){
       this.previousStep = this.step;
       this.step = 2;
-      this.header = this.previousHeader;
+      this.header = this.profilesService.profileSelected.name;
     }
   }
 }

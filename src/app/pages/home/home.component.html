@@ -2,7 +2,7 @@
 
 <div *ngIf="!isLoading">
     <div>
-        
+
         <button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">
             <img src="../../../assets/add_profile.svg" alt="Adicionar Perfil" class="icon_add_profile">
             <br>Perfil
@@ -12,9 +12,17 @@
     <p>Perfis</p>
     
     <div *ngFor="let profile of getProfiles()">
-        <button class="btn btn-primary profile-button" (click)="onGoToProfile(profile)">
-            <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Perfil">
-            {{ profile.name }}
+        <button 
+            class="btn btn-primary profile-button" 
+            (click)="onGoToProfile(profile)">
+            <div class="inline">
+                <img src="../../../assets/profile_picture.svg" class="profile_picture" alt="Foto de perfil">
+                <div>
+                    <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Perfil" hidden>
+                    {{ profile.name }}
+                    <br><span *ngIf="profile.age">{{ profile.age }} anos</span>
+                </div>
+            </div>
         </button>
     </div>
 </div>

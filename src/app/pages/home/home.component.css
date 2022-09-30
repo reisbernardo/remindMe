@@ -10,6 +10,9 @@ p{
     font-weight: 700;
     font-size: 20px;
 }
+span{
+    font-size: 16px;
+}
 
 .create-button{
     background-color: #E3FFDB;
@@ -26,6 +29,8 @@ p{
     color: #414141CC;
     height: 120px;
     margin-bottom: 9px;
+    display: inline-grid;
+    text-align: initial;
 }
 
 app-loading-spinner{
@@ -43,4 +48,14 @@ app-loading-spinner{
     top: 8px;
     width: 30px;
     height: 30px;
+}
+
+.inline {
+    display:flex;
+    align-items: center;
+}
+
+.profile_picture {
+    width: 100px;
+    height: 100px;
 }

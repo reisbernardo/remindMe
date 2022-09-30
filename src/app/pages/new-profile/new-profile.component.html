@@ -1,9 +1,7 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <p>Foto</p>
     <div class="center">
-        <div class="circle">
-            <!-- <img src="../../../assets/add_photo.svg" class="add_photo" alt="Adicionar Foto"> -->
-        </div>
+        <div class="circle"></div>
     </div>
     
     <div class="form-group">
@@ -29,10 +27,12 @@
             class="help-block">Por favor, digite uma idade válida!</span>
     </div>
     <div class="center bottom">
-        <button class="btn btn-primary main-button margin" type="submit">
+        <button 
+            class="btn btn-primary main-button margin" 
+            type="submit" 
+            [disabled]="profileForm.invalid">
             <img src="../../../assets/plus.svg" alt="Adicionar Perfil">
             Adicionar Perfil
         </button>
     </div>
-    
 </form>

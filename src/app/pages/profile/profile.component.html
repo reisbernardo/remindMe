@@ -8,21 +8,24 @@
 <button 
     class="btn btn-primary task-button remedios-button"
     *ngIf="getTarefasRemedio().length > 0"
-    (click)="onGoToTarefa('Remédios')"
-    >Remédios
+    (click)="onGoToTarefa('Remédios')">
+    Remédios
     <li>{{getTarefasRemedio().length}} Atividade(s) restante(s)</li>
+    <img src="../../../assets/pills.svg" class="remedios-icon" alt="Remédios">
 </button>
 <button 
     class="btn btn-primary task-button exercicios-button"
     *ngIf="getTarefasExercicio().length > 0"
-    (click)="onGoToTarefa('Exercícios')"
-    >Exercícios
+    (click)="onGoToTarefa('Exercícios')">
+    Exercícios
     <li>{{getTarefasExercicio().length}} Atividade(s) restante(s)</li>
+    <img src="../../../assets/sports.svg" class="exercicios-icon" alt="Exercícios">
 </button>
 <button 
     class="btn btn-primary task-button recreacao-button"
     *ngIf="getTarefasRecreacao().length > 0"
-    (click)="onGoToTarefa('Recreações')"
-    >Recreações
+    (click)="onGoToTarefa('Recreações')">
+    Recreações
     <li>{{getTarefasRecreacao().length}} Atividade(s) restante(s)</li>
+    <img src="../../../assets/recreation.svg" class="recreacao-icon" alt="Recreações">
 </button>
