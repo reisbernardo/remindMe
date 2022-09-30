@@ -49,26 +49,33 @@ export class TasksService {
     }
   }
 
-  removeTasks(taskName: string, task: string){
-    this.tasks = this.tasks.filter(el => el.taskName !== taskName);
-    if(task == "Remédio"){
-      this.remedioTask = this.remedioTask.filter(el => el.taskName !== taskName);
-    } else if(task == "Exercício"){
-      this.exercicioTask = this.exercicioTask.filter(el => el.taskName !== taskName);
+  removeTasks(task: Task){
+    this.tasks = this.tasks.filter(el => el.taskName !== task.taskName);
+    if(task.task == "Remédio"){
+      this.remedioTask = this.remedioTask.filter(el => el.taskName !== task.taskName);
+    } else if(task.task == "Exercício"){
+      this.exercicioTask = this.exercicioTask.filter(el => el.taskName !== task.taskName);
     } else{
-      this.recreacaoTask = this.recreacaoTask.filter(el => el.taskName !== taskName);
+      this.recreacaoTask = this.recreacaoTask.filter(el => el.taskName !== task.taskName);
     }
   }
 
   editTasks(task: Task){
-    let index = this.tasks.findIndex(x => x.taskName == this.taskSelected.taskName);
-    this.tasks[index] = task;
-    if(this.taskSelected.task == "Remédio"){
-      this.remedioTask[index] = task;
-    } else if(this.taskSelected.task == "Exercício"){
-      this.exercicioTask[index] = task;
-    } else{
-      this.recreacaoTask[index] = task;
+    if(task.task != this.taskSelected.task){
+      this.removeTasks(this.taskSelected);
+      this.addTasks(task);
+    } 
+    else{
+      let index = this.tasks.findIndex(x => x.taskName == this.taskSelected.taskName);
+      this.tasks[index] = task;
+      if(this.taskSelected.task == "Remédio"){
+        this.remedioTask[index] = task;
+      } else if(this.taskSelected.task == "Exercício"){
+        this.exercicioTask[index] = task;
+      } else{
+        this.recreacaoTask[index] = task;
+      }
     }
+
   }
 }

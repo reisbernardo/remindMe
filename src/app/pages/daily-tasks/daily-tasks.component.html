@@ -36,7 +36,7 @@
         [ngClass]="{'remedios-end': tarefa.task === 'Remédio',
                     'exercicios-end': tarefa.task === 'Exercício',
                     'recreacao-end': tarefa.task === 'Recreação'}" 
-        (click)="removeTarefa(tarefa.taskName, tarefa.task)">
+        (click)="removeTarefa(tarefa)">
         Finalizar Tarefa
     </button>
 </div>

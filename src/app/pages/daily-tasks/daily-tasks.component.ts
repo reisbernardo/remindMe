@@ -17,10 +17,11 @@ export class DailyTasksComponent implements OnInit {
     private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    if(this.getTarefas().length == 0) this.stepsService.goBack();
   }
 
-  removeTarefa(tarefaNome: string, tarefa: string){
-    this.tasksService.removeTasks(tarefaNome, tarefa);
+  removeTarefa(tarefa: Task){
+    this.tasksService.removeTasks(tarefa);
     this.dataStorageService.storeData("tasks");
     if(this.getTarefas().length == 0) this.stepsService.goBack();
   }
