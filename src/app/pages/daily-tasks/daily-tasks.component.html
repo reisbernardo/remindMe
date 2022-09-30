@@ -1,12 +1,16 @@
 <p>Tarefas do Dia</p>
 
 <div *ngIf="getHeader() == 'Remédios'">
-    <div *ngFor="let tarefa of getTarefasRemedio()">
+    <div *ngFor="let tarefa of getTarefasRemedio()" class="card">
         <button 
             class="btn btn-primary task-button remedios-button" 
             (click)="onClickEdit(tarefa)">
             {{ tarefa.taskName }}
-            <span class="remedios-button-span">Frequência: {{ tarefa.frequency }}</span>
+            <div class="inline">
+                <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
+                <img class="icon icon-remedios" src="../../../assets/clock.svg" alt="Frequência">
+                <span class="remedios-button-span">Frequência: {{ tarefa.frequency }}</span>
+            </div>
         </button>
     
         <button 
@@ -18,12 +22,16 @@
 </div>
 
 <div *ngIf="getHeader() == 'Exercícios'">
-    <div *ngFor="let tarefa of getTarefasExercicio()">
+    <div *ngFor="let tarefa of getTarefasExercicio()" class="card">
         <button 
         class="btn btn-primary task-button exercicios-button" 
         (click)="onClickEdit(tarefa)">
         {{ tarefa.taskName }}
-        <span class="exercicios-button-span">Frequência: {{ tarefa.frequency }}</span>
+        <div class="inline">
+            <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
+            <img class="icon icon-exercicio" src="../../../assets/clock.svg" alt="Frequência">
+            <span class="exercicios-button-span">Frequência: {{ tarefa.frequency }}</span>
+        </div>
     </button>
     
     <button 
@@ -35,12 +43,16 @@
 </div>
 
 <div *ngIf="getHeader() == 'Recreações'">
-    <div *ngFor="let tarefa of getTarefasRecreacao()">
+    <div *ngFor="let tarefa of getTarefasRecreacao()" class="card">
         <button 
         class="btn btn-primary task-button recreacao-button" 
         (click)="onClickEdit(tarefa)">
         {{ tarefa.taskName }}
-        <span class="recreacao-button-span">Frequência: {{ tarefa.frequency }}</span>
+        <div class="inline">
+            <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Tarefa">
+            <img class="icon icon-recreacao" src="../../../assets/clock.svg" alt="Frequência">
+            <span class="recreacao-button-span">Frequência: {{ tarefa.frequency }}</span>
+        </div>
     </button>
     
     <button 

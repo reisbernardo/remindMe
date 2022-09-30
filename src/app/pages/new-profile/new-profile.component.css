@@ -28,6 +28,10 @@ p{
     height: 140px;
     width: 140px;
     background-color: #FFFFFF;
+    background-image: url("../../../assets/add_photo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 50%;
     border: 1px solid #BEBEBE;
     display: inline-block;
@@ -60,3 +64,4 @@ p{
         margin-bottom:50px;
     }
 }
+

@@ -17,10 +17,42 @@ span{
     font-size: 22px;
 }
 
+.inline {
+    display:flex;
+}
+
+.icon{
+    margin-right: 10px;
+}
+
+.icon-remedios{
+    filter: invert(55%) sepia(69%) saturate(3641%) hue-rotate(119deg) brightness(92%) contrast(101%);
+}
+
+.icon-exercicio {
+    filter: invert(36%) sepia(26%) saturate(5217%) hue-rotate(337deg) brightness(105%) contrast(121%);
+}
+
+.icon-recreacao {
+    filter: invert(69%) sepia(73%) saturate(7500%) hue-rotate(279deg) brightness(104%) contrast(103%);
+}
+
 .task-button{
     height: 90px;
     display: inline-grid;
     text-align: initial;
+}
+
+.card {
+    position: relative;
+}
+
+.edit_icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
 }
 
 .remedios-button{

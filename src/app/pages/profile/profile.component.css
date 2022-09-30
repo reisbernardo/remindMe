@@ -37,16 +37,40 @@ li{
     background-color: #CCFFE7;
     border-color: #CCFFE7;
     color: #007B41;
+    position:relative;
 }
+
+.remedios-icon{
+    position: absolute;
+    right: 30px;
+    top: 35px;
+}
+
 
 .exercicios-button{
     background-color: #FFDCDC;
     border-color: #FFDCDC;
     color: #FF3939;
+    position:relative;
 }
 
 .recreacao-button{
     background-color: #FFC3FD;
     border-color: #FFC3FD;
     color: #FF3FF9;
+    position:relative;
+}
+
+.remedios-icon, .exercicios-icon, .recreacao-icon {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+}
+
+.exercicios-icon {
+    filter: invert(43%) sepia(84%) saturate(3708%) hue-rotate(337deg) brightness(99%) contrast(115%);
+}
+
+.add_task{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }

@@ -23,6 +23,7 @@ span{
 }
 
 .profile-button{
+    position: relative;
     background-color: #FFF8BC;
     border-color: #FFF8BC;
     color: #414141CC;
@@ -35,4 +36,26 @@ span{
 app-loading-spinner{
     text-align: center; 
     display: block;
+}
+
+.icon_add_profile{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.edit_icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+.inline {
+    display:flex;
+    align-items: center;
+}
+
+.profile_picture {
+    width: 100px;
+    height: 100px;
 }

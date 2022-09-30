@@ -1,7 +1,13 @@
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 
 <div *ngIf="!isLoading">
-    <button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">Novo Perfil</button>
+    <div>
+
+        <button class="btn btn-primary create-button" (click)="onGoToCreateProfile()">
+            <img src="../../../assets/add_profile.svg" alt="Adicionar Perfil" class="icon_add_profile">
+            <br>Perfil
+        </button>
+    </div>
 
     <p>Perfis</p>
     
@@ -9,8 +15,14 @@
         <button 
             class="btn btn-primary profile-button" 
             (click)="onGoToProfile(profile)">
-            {{ profile.name }}
-            <span *ngIf="profile.age">{{ profile.age }} anos</span>
+            <div class="inline">
+                <img src="../../../assets/profile_picture.svg" class="profile_picture" alt="Foto de perfil">
+                <div>
+                    <img src="../../../assets/edit.svg" class="edit_icon" alt="Editar Perfil" hidden>
+                    {{ profile.name }}
+                    <br><span *ngIf="profile.age">{{ profile.age }} anos</span>
+                </div>
+            </div>
         </button>
     </div>
 </div>

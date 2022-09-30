@@ -2,10 +2,18 @@
     <p>Tipo da Tarefa</p>
     <div class="selects">
         <div class="input-task" *ngFor="let task of tasks">
-            <p [ngClass]="{'remedios': task === 'Remédio',
-                            'exercicio': task === 'Exercício',
-                            'recreacao': task === 'Recreação'}"
-                            >{{ task }}</p>
+            <div class="test">
+                <div [ngClass]="{'remedios': task === 'Remédio',
+                                 'exercicio': task === 'Exercício',
+                                 'recreacao': task === 'Recreação'}"
+                                 ></div>
+                                 
+                <p [ngClass]="{'remedios': task === 'Remédio',
+                                'exercicio': task === 'Exercício',
+                                'recreacao': task === 'Recreação'}"
+                                >{{ task }}</p>
+            </div>
+            
             <input
                 type="radio"
                 formControlName="task"
@@ -37,6 +45,7 @@
             class="btn btn-primary main-button margin" 
             type="submit" 
             [disabled]="taskForm.invalid">
+            <img src="../../../assets/plus.svg" alt="Adicionar Perfil">
             Adicionar Tarefa
         </button>
     </div>
