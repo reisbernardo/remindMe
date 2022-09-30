@@ -50,3 +50,7 @@ li{
     border-color: #FFC3FD;
     color: #FF3FF9;
 }
+
+.add_task{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
