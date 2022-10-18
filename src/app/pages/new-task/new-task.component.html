@@ -30,8 +30,29 @@
             class="form-control"
             placeholder="Ex . Tomar remédio*">
     </div>
-    
-    <div class="form-group">
+    <div class="form-group" formArrayName="days">
+        <div class="form-check " *ngFor="let day of days; let i = index">
+            <label class="form-check-label" for="{{ 'days_' + day.id }}"
+            >{{ day.day }}</label>
+            <input
+            class="form-check-input"
+            type="checkbox"
+            id="{{ 'days_' + day.id }}"
+            [formControlName]="i"
+            [value]="day.id">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="alarmTime">Choose time</label>
+        <input 
+            type="time" 
+            id="alarmTime" 
+            name="alarmTime" 
+            formControlName="time" 
+            class="form-control" />
+      </div>
+
+    <!-- <div class="form-group">
         <p>Frequência</p>
         <input
             type="text"
@@ -39,7 +60,7 @@
             formControlName="frequency"
             class="form-control"
             placeholder="Ex . 70">
-    </div>
+    </div> -->
     <div class="center bottom">
         <button 
             class="btn btn-primary main-button margin" 
