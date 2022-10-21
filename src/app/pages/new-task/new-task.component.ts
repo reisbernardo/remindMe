@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
@@ -52,27 +52,28 @@ export class NewTaskComponent implements OnInit {
     private stepsService: StepsService,
     private tasksService: TasksService,
     private dataStorageService: DataStorageService,
-    private profilesService: ProfilesService) { }
+    private profilesService: ProfilesService,
+    private fb: FormBuilder) {    
+       }
 
   ngOnInit(): void {
     let taskSelected: string;
-    let taskNameSelected: string;
-    let taskDaysSelected: number[];
-    let taskTimeSelected: string;
-    if(this.stepsService.previousStep == 3){
-      taskSelected = this.tasksService.taskSelected.task;
-      taskNameSelected = this.tasksService.taskSelected.taskName;
-      taskDaysSelected = this.tasksService.taskSelected.weekDay;
-      taskTimeSelected = this.tasksService.taskSelected.time;
-      this.buttonLabel = 'Alterar Tarefa';
-    }
-    this.taskForm = new FormGroup({
-      'task': new FormControl(taskSelected),
-      'taskName': new FormControl(taskNameSelected, [Validators.required, Validators.maxLength(30)]),
-      'days': new FormArray([]),
-      // 'day1': new FormControl(taskDaySelected, [Validators.required]),
-      'time': new FormControl(taskTimeSelected, [Validators.required]),
-  },)
+      let taskNameSelected: string;
+      let taskDaysSelected: number[];
+      let taskTimeSelected: string;
+      if(this.stepsService.previousStep == 3){
+        taskSelected = this.tasksService.taskSelected.task;
+        taskNameSelected = this.tasksService.taskSelected.taskName;
+        taskDaysSelected = this.tasksService.taskSelected.weekDay;
+        taskTimeSelected = this.tasksService.taskSelected.time;
+        this.buttonLabel = 'Alterar Tarefa';
+      }
+      this.taskForm = this.fb.group({
+      task: this.fb.control(taskSelected, [Validators.required]),
+      taskName: this.fb.control(taskNameSelected, [Validators.required, , Validators.maxLength(30)]),
+      daysArray: this.fb.array([], [Validators.required]),
+      time:  this.fb.control(taskTimeSelected, [Validators.required])
+    })
   }
 
   onSubmit(){
@@ -87,7 +88,22 @@ export class NewTaskComponent implements OnInit {
       this.dataStorageService.storeData('tasks');
       this.stepsService.goTo(this.profilesService.profileSelected.name, this.stepsService.previousStep);
     }
-    
+  }
+
+  onCheckboxChange(e: any) {
+    const daysArray: FormArray = this.taskForm.get('daysArray') as FormArray;
+    if (e.target.checked) {
+      daysArray.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      daysArray.controls.forEach((item: FormControl) => {
+        if (item.value == e.target.value) {
+          daysArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
   }
   
 }

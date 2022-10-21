@@ -1,58 +1,68 @@
-<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-    <p>Tipo da Tarefa</p>
-    <div class="selects">
-        <div class="input-task" *ngFor="let task of tasks">
-            <div class="test">
-                <div [ngClass]="{'remedios': task === 'Remédio',
-                                 'exercicio': task === 'Exercício',
-                                 'recreacao': task === 'Recreação'}"
-                                 ></div>
-                                 
-                <p [ngClass]="{'remedios': task === 'Remédio',
-                                'exercicio': task === 'Exercício',
-                                'recreacao': task === 'Recreação'}"
-                                >{{ task }}</p>
-            </div>
-            
-            <input
-                type="radio"
-                formControlName="task"
-                [value]="task">
-          </div>
-    </div>
-    
-    <div class="form-group">
-        <p>Tarefa</p>
-        <input
-            type="text"
-            id="taskName"
-            formControlName="taskName"
-            class="form-control"
-            placeholder="Ex . Tomar remédio*">
-    </div>
-    <div class="form-group" formArrayName="days">
-        <div class="form-check " *ngFor="let day of days; let i = index">
-            <label class="form-check-label" for="{{ 'days_' + day.id }}"
-            >{{ day.day }}</label>
-            <input
-            class="form-check-input"
-            type="checkbox"
-            id="{{ 'days_' + day.id }}"
-            [formControlName]="i"
-            [value]="day.id">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="alarmTime">Choose time</label>
-        <input 
-            type="time" 
-            id="alarmTime" 
-            name="alarmTime" 
-            formControlName="time" 
-            class="form-control" />
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" novalidate>
+  <p>Tipo da Tarefa</p>
+  <div class="selects">
+    <div class="input-task" *ngFor="let task of tasks">
+      <div class="test">
+        <div
+          [ngClass]="{
+            remedios: task === 'Remédio',
+            exercicio: task === 'Exercício',
+            recreacao: task === 'Recreação'
+          }"
+        ></div>
+
+        <p
+          [ngClass]="{
+            remedios: task === 'Remédio',
+            exercicio: task === 'Exercício',
+            recreacao: task === 'Recreação'
+          }"
+        >
+          {{ task }}
+        </p>
       </div>
 
-    <!-- <div class="form-group">
+      <input type="radio" formControlName="task" [value]="task" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <p>Tarefa</p>
+    <input
+      type="text"
+      id="taskName"
+      formControlName="taskName"
+      class="form-control"
+      placeholder="Ex . Tomar remédio*"
+    />
+  </div>
+  <!-- <div class="form-group" formArrayName="days">
+    <div class="form-check" *ngFor="let day of days; let i = index">
+      <label class="form-check-label" for="{{ 'days_' + day.id }}">{{
+        day.day
+      }}</label>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="{{ 'days_' + day.id }}"
+        [formControlName]="i"
+        (change)="onCheckboxChange($event)"
+        [value]="day.id"
+      />
+    </div>
+  </div> -->
+  <div class="form-group">
+    <label for="alarmTime">Choose time</label>
+    <input
+      type="time"
+      id="alarmTime"
+      name="alarmTime"
+      formControlName="time"
+      class="form-control"
+    />
+  </div>
+
+  <!-- <div class="form-group">
         <p>Frequência</p>
         <input
             type="text"
@@ -61,13 +71,25 @@
             class="form-control"
             placeholder="Ex . 70">
     </div> -->
-    <div class="center bottom">
-        <button 
-            class="btn btn-primary main-button margin" 
-            type="submit" 
-            [disabled]="taskForm.invalid">
-            <img src="../../../assets/plus.svg" alt="Adicionar Perfil">
-            {{buttonLabel}}
-        </button>
-    </div>
+  <div *ngFor="let data of days; let i = index">
+    <label>
+      <input
+        type="checkbox"
+        [value]="data.id"
+        (change)="onCheckboxChange($event)"
+      />
+      {{ data.day }}
+    </label>
+  </div>
+
+  <div class="center bottom">
+    <button
+      class="btn btn-primary main-button margin"
+      type="submit"
+      [disabled]="taskForm.invalid"
+    >
+      <img src="../../../assets/plus.svg" alt="Adicionar Perfil" />
+      {{ buttonLabel }}
+    </button>
+  </div>
 </form>
