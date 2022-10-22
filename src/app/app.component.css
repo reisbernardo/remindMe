@@ -1,21 +1,59 @@
-.container-box{
-    width: 400px;
-    height: 800px;
-    border: solid 0.1px grey;
-    border-radius: 8px;
-    margin: 10px;
-}
-
 .header{
     background-color: #FFF8BC;
     margin: 0;
-    padding: 20px 0 20px;
-    font-weight: bolder;
-    text-align: center;
-    border-radius: 8px;
+    height: 120px;
+    margin-bottom: 5px;
+}
+
+button{
+    margin: 5px 0 0 5px;    
+    border-radius: 50%;
+    background-color: #FFF48F;
+    border: 0px solid transparent;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+img{
+    height: 32px;
+    width: 32px;
+    margin: 5px 0 0 5px; 
+    background-color: #FFF48F;
+    border-radius: 10px;
+}
+
+.dropdown-menu{
+    background-color: #FFF48F;
+    margin-left: 5px;
+}
+
+.dropdown-menu > li > a{
     color: #414141CC;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+h1{
+    font-weight: bolder;
+    color: #414141CC;
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.remedios-header{
+    background-color: #CCFFE7;
+}
+
+.exercicios-header{
+    background-color: #FFDCDC;
+}
+
+.recreacao-header{
+    background-color: #FFC3FD;
 }
 
 .content{
-    padding: 0 15px 0 15px;
+    padding: 0 10px 0 10px;
 }

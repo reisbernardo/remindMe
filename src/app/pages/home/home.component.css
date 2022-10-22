@@ -1,0 +1,61 @@
+button{
+    width: 100%;
+    border-radius: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+p{
+    margin-left: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+span{
+    font-size: 16px;
+}
+
+.create-button{
+    background-color: #E3FFDB;
+    border-color: #E3FFDB;
+    color: #000000;
+    margin: 30px 0 20px;
+    height: 130px;
+}
+
+.profile-button{
+    position: relative;
+    background-color: #FFF8BC;
+    border-color: #FFF8BC;
+    color: #414141CC;
+    height: 120px;
+    margin-bottom: 9px;
+    display: inline-grid;
+    text-align: initial;
+}
+
+app-loading-spinner{
+    text-align: center; 
+    display: block;
+}
+
+.icon_add_profile{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.edit_icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+.inline {
+    display:flex;
+    align-items: center;
+}
+
+.profile_picture {
+    width: 100px;
+    height: 100px;
+}

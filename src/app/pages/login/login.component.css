@@ -2,6 +2,15 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+.alert{
+    padding: 10px;
+}
+
+app-loading-spinner{
+    text-align: center; 
+    display: block;
+}
+
 .center{
     text-align: center;
 }
@@ -45,6 +54,7 @@ input{
     background-color: #FFF8BC;
     border-color: #9A966F;
     border-radius: 20px;
+    height: 43px;
 }
 
 span{
@@ -53,7 +63,6 @@ span{
 
 .form-group{
     margin: 25px 0 20px;
-    
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

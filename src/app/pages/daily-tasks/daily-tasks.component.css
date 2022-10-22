@@ -1,0 +1,111 @@
+button{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+p{
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    color: #4A4A4A;
+}
+
+span{
+    font-size: 22px;
+}
+
+.inline {
+    display:flex;
+}
+
+.icon{
+    margin-right: 10px;
+}
+
+.icon-remedios{
+    filter: invert(55%) sepia(69%) saturate(3641%) hue-rotate(119deg) brightness(92%) contrast(101%);
+}
+
+.icon-exercicio {
+    filter: invert(36%) sepia(26%) saturate(5217%) hue-rotate(337deg) brightness(105%) contrast(121%);
+}
+
+.icon-recreacao {
+    filter: invert(69%) sepia(73%) saturate(7500%) hue-rotate(279deg) brightness(104%) contrast(103%);
+}
+
+.task-button{
+    height: 90px;
+    display: inline-grid;
+    text-align: initial;
+}
+
+.card {
+    position: relative;
+}
+
+.edit_icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+.remedios-button{
+    background-color: #CCFFE7;
+    border-color: #CCFFE7;
+    color: #007B41;
+}
+
+.remedios-button-span {
+    color: #00B45F;
+}
+
+.exercicios-button{
+    background-color: #FFDCDC;
+    border-color: #FFDCDC;
+    color: #FF3939;
+}
+
+.exercicios-button-span {
+    color: #f86262;
+}
+
+.recreacao-button{
+    background-color: #FFC3FD;
+    border-color: #FFC3FD;
+    color: #FF3FF9;
+}
+
+.recreacao-button-span {
+    color: #fd64f8;
+}
+
+.end-button{
+    height: 50px;
+    margin-bottom: 9px;
+    border-radius: 0 0 20px 20px ;
+    line-height: initial;
+}
+
+.remedios-end{
+    background-color: #1fb16d;
+    border-color: #1fb16d;
+    color: white;
+}
+
+.exercicios-end{
+    background-color: #fd7171;
+    border-color: #fd7171;
+    color: white;
+}
+
+.recreacao-end{
+    background-color: #fd64f8;
+    border-color: #fd64f8;
+    color: white;
+}

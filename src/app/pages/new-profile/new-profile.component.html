@@ -1,0 +1,38 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <p>Foto</p>
+    <div class="center">
+        <div class="circle"></div>
+    </div>
+    
+    <div class="form-group">
+        <p>Nome</p>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+            placeholder="Ex . José*">
+    </div>
+    
+    <div class="form-group">
+        <p>Idade</p>
+        <input
+            type="text"
+            id="age"
+            formControlName="age"
+            class="form-control"
+            placeholder="Ex . 70">
+        <span 
+            *ngIf="!profileForm.get('age').valid && profileForm.get('age').touched"
+            class="help-block">Por favor, digite uma idade válida!</span>
+    </div>
+    <div class="center bottom">
+        <button 
+            class="btn btn-primary main-button margin" 
+            type="submit" 
+            [disabled]="profileForm.invalid">
+            <img src="../../../assets/plus.svg" alt="Adicionar Perfil">
+            Adicionar Perfil
+        </button>
+    </div>
+</form>

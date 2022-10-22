@@ -1,0 +1,76 @@
+button{
+    width: 100%;
+    border-radius: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+p{
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-size: 30px;
+    color: #4A4A4A;
+}
+
+li{
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.create-button{
+    background-color: #E3FFDB;
+    border-color: #E3FFDB;
+    color: #000000;
+    margin: 30px 0 20px;
+    height: 130px;
+}
+
+.task-button{
+    height: 120px;
+    margin-bottom: 9px;
+    display: inline-grid;
+    text-align: initial;
+}
+
+.remedios-button{
+    background-color: #CCFFE7;
+    border-color: #CCFFE7;
+    color: #007B41;
+    position:relative;
+}
+
+.remedios-icon{
+    position: absolute;
+    right: 30px;
+    top: 35px;
+}
+
+
+.exercicios-button{
+    background-color: #FFDCDC;
+    border-color: #FFDCDC;
+    color: #FF3939;
+    position:relative;
+}
+
+.recreacao-button{
+    background-color: #FFC3FD;
+    border-color: #FFC3FD;
+    color: #FF3FF9;
+    position:relative;
+}
+
+.remedios-icon, .exercicios-icon, .recreacao-icon {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+}
+
+.exercicios-icon {
+    filter: invert(43%) sepia(84%) saturate(3708%) hue-rotate(337deg) brightness(99%) contrast(115%);
+}
+
+.add_task{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
