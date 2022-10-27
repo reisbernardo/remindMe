@@ -98,6 +98,18 @@ div.recreacao{
     height: 43px;
 }
 
+input[type=time] {
+    width: 90px;
+}
+
+.flex-display{
+    display: flex;
+}
+
+.center-box{
+    text-align: center;
+}
+
 .form-group{
     margin-bottom: 20px;
 }
