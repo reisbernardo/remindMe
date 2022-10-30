@@ -13,11 +13,11 @@ export class TasksService {
   constructor() { }
 
   setTasks(tasks: Task[]){
+    this.remedioTask = [];
+    this.exercicioTask = [];
+    this.recreacaoTask = [];
     if(tasks.length == 0){
       this.tasks = [];
-      this.remedioTask = [];
-      this.exercicioTask = [];
-      this.recreacaoTask = [];
     }
     else{
       this.tasks = tasks;

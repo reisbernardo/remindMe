@@ -98,16 +98,29 @@ div.recreacao{
     height: 43px;
 }
 
+.align-center{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;  
+}
+
 input[type=time] {
     width: 90px;
 }
 
 .flex-display{
     display: flex;
+    justify-content: center;
 }
 
 .center-box{
     text-align: center;
+    display: inline-grid;
+    margin: 5px;
+}
+
+label{
+    color: #4A4A4A;  
 }
 
 .form-group{
@@ -121,7 +134,7 @@ span{
 p{
     margin-left: 10px;
     margin-bottom: 0px;
-    font-size: 30px;
+    font-size: 25px;
     color: #4A4A4A;
 }
 

@@ -36,6 +36,37 @@ export class DailyTasksComponent implements OnInit {
     }
   }
 
+  translateWeekDay(arr: any[]){
+    let finalArray = ''
+    if(arr.length == 7) return 'Todos os Dias';
+    arr.forEach(el => {
+      switch(el){
+        case '0': 
+          finalArray += 'DOM, ';
+          return;
+        case '1':
+          finalArray += 'SEG, ';
+          return;
+        case '2':
+          finalArray += 'TER, ';
+          return;
+        case '3':
+          finalArray += 'QUA, ';
+          return;
+        case '4':
+          finalArray += 'QUI, ';
+          return;
+        case '5':
+          finalArray += 'SEX, ';
+          return;
+        case '6':
+          finalArray += 'SAB, ';
+          return;
+      }
+    });
+    return finalArray.slice(0, -2);
+  }
+
   onClickEdit(tarefa: Task){
     this.tasksService.taskSelected = tarefa;
     this.stepsService.goTo('Alterar Tarefa', 21);

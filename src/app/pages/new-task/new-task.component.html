@@ -39,7 +39,7 @@
 
   <div class="form-group">
     <p>Frequência</p>
-    <div class="flex-display">
+    <div class="align-center">
       <input
       type="time"
       id="alarmTime"
@@ -47,23 +47,22 @@
       formControlName="time"
       class="form-control frequency-form"
     />
+    </div>
+
+    <div class="flex-display">
+
     <div *ngFor="let data of days; let i = index" class="center-box">
       <label>
         {{ data.day }}
+      </label>
         <input
           type="checkbox"
           [value]="data.id"
           (change)="onCheckboxChange($event)"
         />
-      </label>
     </div>
     </div>
-
   </div>
-  
-  <!-- <div class="form-group" style="display-flex">
-
-  </div> -->
 
   <div class="center bottom">
     <button

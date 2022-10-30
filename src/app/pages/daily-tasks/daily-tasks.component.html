@@ -27,7 +27,7 @@
                 [ngClass]="{'remedios-button-span': tarefa.task === 'Remédio',
                             'exercicios-button-span': tarefa.task === 'Exercício',
                             'recreacao-button-span': tarefa.task === 'Recreação'}" 
-            >Frequência: {{ tarefa.frequency }}</span>
+            >{{tarefa.time}} - {{translateWeekDay(tarefa.daysArray)}}</span>
         </div>
     </button>
 

@@ -15,10 +15,6 @@ export class NewTaskComponent implements OnInit {
   taskForm: FormGroup;
   tasks = ["Remédio", "Exercício", "Recreação"];
   days = [
-    // {
-    //   day: 'Everyday',
-    //   id: -1
-    // },
     {
       day: 'DOM',
       id: 0
@@ -59,19 +55,17 @@ export class NewTaskComponent implements OnInit {
   ngOnInit(): void {
     let taskSelected: string;
       let taskNameSelected: string;
-      let taskDaysSelected: string[] = [];
       let taskTimeSelected: string;
       if(this.stepsService.previousStep == 3){
         taskSelected = this.tasksService.taskSelected.task;
         taskNameSelected = this.tasksService.taskSelected.taskName;
-        taskDaysSelected = this.tasksService.taskSelected.daysArray;
         taskTimeSelected = this.tasksService.taskSelected.time;
         this.buttonLabel = 'Alterar Tarefa';
       }
       this.taskForm = this.fb.group({
       task: this.fb.control(taskSelected, [Validators.required]),
       taskName: this.fb.control(taskNameSelected, [Validators.required, , Validators.maxLength(30)]),
-      daysArray: this.fb.array(taskDaysSelected, [Validators.required]),
+      daysArray: this.fb.array([], [Validators.required]),
       time:  this.fb.control(taskTimeSelected, [Validators.required])
     })
   }

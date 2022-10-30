@@ -25,7 +25,7 @@ export class DataStorageService {
     
     this.http.put('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth=' + this.authService.token, dataStore)
     .subscribe(response => {
-      console.log('response: ', response);
+      console.log('response store: ', response);
     });
   }
 
@@ -33,7 +33,7 @@ export class DataStorageService {
     if (data == 'tasks') data += this.profilesService.getProfileIndex().toString();
     return this.http.get<any>('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth='  + this.authService.token)
     .subscribe(response => {
-      if(response == null) response = []
+      if(response == null) response = [];
       if(data == 'profiles') {
         this.profilesService.setProfiles(response);
       }

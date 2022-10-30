@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private stepsService: StepsService,
     private authService: AuthService,
-    private dataStorageService: DataStorageService){}
+    private dataStorageService: DataStorageService,
+    private alarmService: AlarmService){}
 
   ngOnInit(): void {
       this.signupForm = new FormGroup({
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
       setTimeout( () => { 
         this.isLoading = false; 
         this.stepsService.goTo("RemindMe", 1);
+        this.alarmService.getAlarms();
       }, 600 );
        
       },

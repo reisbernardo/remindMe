@@ -19,7 +19,7 @@ span{
     border-color: #E3FFDB;
     color: #000000;
     margin: 30px 0 20px;
-    height: 130px;
+    height: 120px;
 }
 
 .profile-button{
@@ -27,7 +27,7 @@ span{
     background-color: #FFF8BC;
     border-color: #FFF8BC;
     color: #414141CC;
-    height: 120px;
+    height: 110px;
     margin-bottom: 9px;
     display: inline-grid;
     text-align: initial;

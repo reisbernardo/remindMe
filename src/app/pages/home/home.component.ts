@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private profilesService: ProfilesService,
     private stepsService: StepsService,
-    private dataStorageService: DataStorageService ) { }
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
