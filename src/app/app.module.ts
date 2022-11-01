@@ -14,6 +14,8 @@ import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
+import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal.component'
     DailyTasksComponent,    
     LoadingSpinnerComponent,
     DropdownDirective,
-    AlertModalComponent
+    AlertModalComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal.component'
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

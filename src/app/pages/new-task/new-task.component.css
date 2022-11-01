@@ -104,10 +104,6 @@ div.recreacao{
     align-items: center;  
 }
 
-input[type=time] {
-    width: 90px;
-}
-
 .flex-display{
     display: flex;
     justify-content: center;

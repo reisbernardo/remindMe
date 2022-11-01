@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { StepsService } from './services/steps/steps.service';
+import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,8 @@ import { StepsService } from './services/steps/steps.service';
 export class AppComponent {
   title = 'remindMe';
 
-  constructor(private stepsService: StepsService) {
+  constructor(private stepsService: StepsService,
+    private modalService: NgbModal) {
     let date: Date = new Date();  
     console.log("day: ", date.getDay())
     console.log("hours: ", date.getHours())
