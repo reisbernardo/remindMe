@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, timeout } from 'rxjs';
 import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   isLogin = true;
   isLoading = false;
   error: string = null;
+  changingMode = false;
 
   constructor(
     private stepsService: StepsService,
@@ -50,9 +51,9 @@ export class LoginComponent implements OnInit {
     authObs.subscribe(() => {
       this.dataStorageService.fetchData('profiles');
       setTimeout( () => { 
+        this.alarmService.getAlarms();
         this.isLoading = false; 
         this.stepsService.goTo("RemindMe", 1);
-        this.alarmService.getAlarms();
       }, 600 );
        
       },
@@ -64,8 +65,12 @@ export class LoginComponent implements OnInit {
   }
 
   onChangeMode(){
+    this.changingMode = true;
     this.signupForm.reset();
-    this.isLogin = !this.isLogin
+    this.isLogin = !this.isLogin;
+    setTimeout( () => { 
+      this.changingMode = false;
+    }, 50 );
   }
 
   onHandleError() {

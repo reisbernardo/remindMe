@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
@@ -14,7 +15,8 @@ export class NewProfileComponent implements OnInit {
   constructor(
     private stepsService: StepsService,
     private profilesService: ProfilesService,
-    private dataStorageService: DataStorageService) { }
+    private dataStorageService: DataStorageService,
+    private alarmService: AlarmService) { }
 
   ngOnInit(): void {
     this.profileForm = new UntypedFormGroup({
@@ -25,6 +27,7 @@ export class NewProfileComponent implements OnInit {
 
   onSubmit(){
     this.profilesService.addProfile(this.profileForm.value);
+    this.alarmService.addAlarmProfile(this.profileForm.value);
     this.dataStorageService.storeData('profiles');
     this.stepsService.goTo("RemindMe", 1);
   }

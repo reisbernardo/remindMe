@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { delay } from 'rxjs';
 import { StepsService } from './services/steps/steps.service';
 import { ConfirmationService } from './shared/confirmation/confirmation.service';
 
@@ -11,11 +12,7 @@ export class AppComponent {
   title = 'remindMe';
 
   constructor(private stepsService: StepsService,
-    private confirmationService: ConfirmationService) {
-    let date: Date = new Date();  
-    console.log("day: ", date.getDay())
-    console.log("hours: ", date.getHours())
-    console.log("minutes: ", date.getMinutes())
+    private confirmationService: ConfirmationService) { 
   }
 
   getStep(){

@@ -3,6 +3,7 @@ import { DataStorageService } from 'src/app/services/data-storage/data-storage.s
 import { StepsService } from 'src/app/services/steps/steps.service';
 import { TasksService } from 'src/app/services/tasks/tasks.service';
 import { Task } from 'src/app/services/tasks/task.model';
+import { AlarmService } from 'src/app/services/alarm/alarm.service';
 
 @Component({
   selector: 'app-daily-tasks',
@@ -14,7 +15,8 @@ export class DailyTasksComponent implements OnInit {
   constructor(
     private stepsService: StepsService,
     private tasksService: TasksService,
-    private dataStorageService: DataStorageService) { }
+    private dataStorageService: DataStorageService,
+    private alarmService: AlarmService) { }
 
   ngOnInit(): void {
     if(this.getTarefas().length == 0) this.stepsService.goBack();
@@ -22,6 +24,7 @@ export class DailyTasksComponent implements OnInit {
 
   removeTarefa(tarefa: Task){
     this.tasksService.removeTasks(tarefa);
+    this.alarmService.removeAlarm(tarefa);
     this.dataStorageService.storeData("tasks");
     if(this.getTarefas().length == 0) this.stepsService.goBack();
   }

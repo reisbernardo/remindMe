@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
@@ -49,7 +50,8 @@ export class NewTaskComponent implements OnInit {
     private tasksService: TasksService,
     private dataStorageService: DataStorageService,
     private profilesService: ProfilesService,
-    private fb: UntypedFormBuilder) {    
+    private fb: UntypedFormBuilder,
+    private alarmService: AlarmService) {    
        }
 
   ngOnInit(): void {
@@ -74,11 +76,13 @@ export class NewTaskComponent implements OnInit {
     console.log("this.taskForm.value: ", this.taskForm.value)
     if(this.stepsService.previousStep == 3) {
       this.tasksService.editTasks(this.taskForm.value);
+      this.alarmService.editAlarm(this.taskForm.value);
       this.dataStorageService.storeData('tasks');
       this.stepsService.goBack();
     }
     else {
       this.tasksService.addTasks(this.taskForm.value);
+      this.alarmService.addAlarm(this.taskForm.value);
       this.dataStorageService.storeData('tasks');
       this.stepsService.goTo(this.profilesService.profileSelected.name, this.stepsService.previousStep);
     }

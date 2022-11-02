@@ -61,21 +61,7 @@ export class TasksService {
   }
 
   editTasks(task: Task){
-    if(task.task != this.taskSelected.task){
-      this.removeTasks(this.taskSelected);
-      this.addTasks(task);
-    } 
-    else{
-      let index = this.tasks.findIndex(x => x.taskName == this.taskSelected.taskName);
-      this.tasks[index] = task;
-      if(this.taskSelected.task == "Remédio"){
-        this.remedioTask[index] = task;
-      } else if(this.taskSelected.task == "Exercício"){
-        this.exercicioTask[index] = task;
-      } else{
-        this.recreacaoTask[index] = task;
-      }
-    }
-
+    this.removeTasks(this.taskSelected);
+    this.addTasks(task);
   }
 }
