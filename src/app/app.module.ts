@@ -14,8 +14,9 @@ import { DailyTasksComponent } from './pages/daily-tasks/daily-tasks.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
-import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
+import { AlarmModalComponent } from './shared/alarm-modal/alarm-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoadingSpinnerComponent,
     DropdownDirective,
     AlertModalComponent,
-    ConfirmationComponent
+    ConfirmationModalComponent,
+    AlarmModalComponent
   ],
   imports: [
     BrowserModule,

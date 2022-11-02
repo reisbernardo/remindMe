@@ -89,7 +89,9 @@ span{
     height: 50px;
     margin-bottom: 9px;
     border-radius: 0 0 20px 20px ;
-    line-height: initial;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .remedios-end{

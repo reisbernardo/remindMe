@@ -5,6 +5,7 @@ import { IAlarm } from './alarm.interface';
 import { TasksService } from '../tasks/tasks.service';
 import { Task } from '../tasks/task.model';
 import { Profile } from '../profiles/profile.model';
+import { ModalService } from '../modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class AlarmService implements OnInit {
   constructor(
     private dataStorageService: DataStorageService,
     private profilesService: ProfilesService,
-    private tasksService: TasksService,) { }
+    private tasksService: TasksService,
+    private modalService: ModalService) { }
 
   ngOnInit(): void {
 
@@ -25,7 +27,6 @@ export class AlarmService implements OnInit {
 
   addAlarm(task: Task){
     this.allAlarms[this.profilesService.getProfileIndex()].tasks.push(task);
-    console.log("this.allAlarms: ", this.allAlarms);
   }
 
   removeAlarm(task: Task){
@@ -38,8 +39,7 @@ export class AlarmService implements OnInit {
   }
 
   addAlarmProfile(profile: Profile){
-    this.allAlarms.push({profile: profile, tasks: []})
-    console.log("this.allAlarms: ", this.allAlarms);
+    this.allAlarms.push({profile: profile, tasks: []});
   }
 
   getAlarms(){
@@ -54,8 +54,7 @@ export class AlarmService implements OnInit {
           this.allAlarms.push({profile, tasks});
         }, 350);
       }, 250*index++)
-    })
-    console.log("this.allAlarms: ", this.allAlarms);
+    });
     this.id = setInterval(() => {
       this.checkAlarms();
     }, 1000);
@@ -66,9 +65,13 @@ export class AlarmService implements OnInit {
     this.allAlarms.forEach(profile => {
       profile.tasks.forEach(task => {
         this.date = new Date();
-        let hour = this.date.getHours() + ':' + this.date.getMinutes();
-        if(task.daysArray.includes(String(this.date.getDay())) && task.time == hour && this.date.getSeconds() < 1)
+        let minutes = this.date.getMinutes() > 9 ? this.date.getMinutes() : '0' + this.date.getMinutes();
+        let hour = this.date.getHours() + ':' + minutes;
+        if(task.daysArray.includes(String(this.date.getDay())) && task.time == hour && this.date.getSeconds() < 1){
           console.log("Alarme de " + profile.profile.name + ' para ' + task.taskName + ' às ' + hour);
+          this.modalService.openModal('alert', "Alarme de " + profile.profile.name + ': ' + task.taskName + ' às ' + hour)
+          .then(() => {return}).catch(() => {return});
+        }
       })
     })
   }

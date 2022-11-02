@@ -1,0 +1,18 @@
+.modal-body {
+  font-size: 18px;
+  color: #414141cc;
+  text-align: center;
+}
+
+::ng-deep .modal-backdrop {
+  z-index: 1040 !important;
+}
+.modal-footer {
+  padding: 0;
+}
+
+.btn {
+  background-color: #414141cc;
+  color: white;
+  width: 100%;
+}

@@ -66,7 +66,7 @@ export class NewTaskComponent implements OnInit {
       }
       this.taskForm = this.fb.group({
       task: this.fb.control(taskSelected, [Validators.required]),
-      taskName: this.fb.control(taskNameSelected, [Validators.required, , Validators.maxLength(30)]),
+      taskName: this.fb.control(taskNameSelected, [Validators.required, , Validators.maxLength(18)]),
       daysArray: this.fb.array([], [Validators.required]),
       time:  this.fb.control(taskTimeSelected, [Validators.required])
     })

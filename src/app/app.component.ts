@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { delay } from 'rxjs';
+import { ModalService } from './services/modal/modal.service';
 import { StepsService } from './services/steps/steps.service';
-import { ConfirmationService } from './shared/confirmation/confirmation.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ export class AppComponent {
   title = 'remindMe';
 
   constructor(private stepsService: StepsService,
-    private confirmationService: ConfirmationService) { 
+    private modalService: ModalService) { 
   }
 
   getStep(){
@@ -25,10 +24,10 @@ export class AppComponent {
 
   goBack(){
     if(this.stepsService.step == 11 || this.stepsService.step == 21)
-    this.confirmationService.confirm('Você realmente deseja voltar e perder suas informações?', 'Continuar', 'Voltar')
+    this.modalService.openModal('confirmation', 'Você realmente deseja voltar e perder suas informações?', 'Continuar', 'Voltar')
     .then((confirmed) => {
       if(!confirmed) this.stepsService.goBack();
-    });
+    }).catch(() => {return});
     else this.stepsService.goBack();
   }
 }

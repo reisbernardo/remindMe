@@ -67,6 +67,8 @@ export class DailyTasksComponent implements OnInit {
           return;
       }
     });
+    if(finalArray == 'SEG, TER, QUA, QUI, SEX, ') return 'Todos os Dias Úteis';
+    if(finalArray == 'DOM, SAB, ') return 'Finais de Semana';
     return finalArray.slice(0, -2);
   }
 
