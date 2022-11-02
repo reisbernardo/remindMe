@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { StepsService } from './services/steps/steps.service';
-import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { ConfirmationService } from './shared/confirmation/confirmation.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ export class AppComponent {
   title = 'remindMe';
 
   constructor(private stepsService: StepsService,
-    private modalService: NgbModal) {
+    private confirmationService: ConfirmationService) {
     let date: Date = new Date();  
     console.log("day: ", date.getDay())
     console.log("hours: ", date.getHours())
@@ -28,6 +27,11 @@ export class AppComponent {
   }
 
   goBack(){
-    this.stepsService.goBack();
+    if(this.stepsService.step == 11 || this.stepsService.step == 21)
+    this.confirmationService.confirm('Você realmente deseja voltar e perder suas informações?', 'Continuar', 'Voltar')
+    .then((confirmed) => {
+      if(!confirmed) this.stepsService.goBack();
+    });
+    else this.stepsService.goBack();
   }
 }

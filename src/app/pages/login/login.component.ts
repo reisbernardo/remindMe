@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
@@ -13,7 +13,7 @@ import { StepsService } from 'src/app/services/steps/steps.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  signupForm: FormGroup;
+  signupForm: UntypedFormGroup;
   isLogin = true;
   isLoading = false;
   error: string = null;
@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
     private alarmService: AlarmService){}
 
   ngOnInit(): void {
-      this.signupForm = new FormGroup({
-          email: new FormControl(null, [Validators.required, Validators.email]),
-          password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      this.signupForm = new UntypedFormGroup({
+          email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+          password: new UntypedFormControl(null, [Validators.required, Validators.minLength(6)])
       },);
   }
 

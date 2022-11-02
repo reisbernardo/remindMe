@@ -12,17 +12,13 @@
             (click)="goBack()" 
             *ngIf="getStep() > 1"><</button>
         <button class="btn" style="visibility: hidden" *ngIf="getStep() == 0"><</button>
-        <li class="dropdown" appDropdown  *ngIf="getStep() == 1">
-            <img style="cursor: pointer;" role="button" class="dropdown-toggle" src="../assets/hamburger.png">
-            <ul class="dropdown-menu">
-              <li>
-                <a (click)="goBack()">Sair</a>
-              </li>
-              <!-- <li>
-                <a>Mais informações</a>
-              </li> -->
-            </ul>
-          </li>
+        <div ngbDropdown class="d-inline-block" *ngIf="getStep() == 1">
+          <img style="cursor: pointer;" role="button" class="dropdown-toggle" ngbDropdownToggle src="../assets/hamburger.png">
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="dropdown-menu" ngbDropdownItem (click)="goBack()">Sair</a>
+
+          </div>
+        </div>
         <h1>{{ getHeader() }}</h1>
     </div>
     

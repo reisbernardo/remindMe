@@ -8,7 +8,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ConfirmationComponent implements OnInit {
   
-  @Input() title: string;
   @Input() message: string;
   @Input() btnOkText: string;
   @Input() btnCancelText: string;
@@ -18,15 +17,11 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit() {
   }
 
-  public decline() {
+  public voltar() {
     this.activeModal.close(false);
   }
 
-  public accept() {
+  public continuar() {
     this.activeModal.close(true);
-  }
-
-  public dismiss() {
-    this.activeModal.dismiss();
   }
 }

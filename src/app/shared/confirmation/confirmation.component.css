@@ -1,0 +1,19 @@
+.modal-body{
+  font-size: 18px;
+}
+
+.modal-footer{
+  justify-content: space-between;
+}
+::ng-deep .modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.btn-danger{
+  background-color: #FFDCDC;
+  color: #414141CC;
+}
+
+.btn-primary{
+  background-color: #4162e1;
+}

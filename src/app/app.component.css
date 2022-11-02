@@ -25,12 +25,14 @@ img{
 .dropdown-menu{
     background-color: #FFF48F;
     margin-left: 5px;
-}
-
-.dropdown-menu > li > a{
     color: #414141CC;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+.dropdown-menu.show{
+    display: contents;
 }
 
 h1{

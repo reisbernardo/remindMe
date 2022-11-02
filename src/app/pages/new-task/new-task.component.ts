@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
 import { ProfilesService } from 'src/app/services/profiles/profiles.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
@@ -12,7 +12,7 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
 })
 export class NewTaskComponent implements OnInit {
   buttonLabel = 'Adicionar Tarefa';
-  taskForm: FormGroup;
+  taskForm: UntypedFormGroup;
   tasks = ["Remédio", "Exercício", "Recreação"];
   days = [
     {
@@ -49,7 +49,7 @@ export class NewTaskComponent implements OnInit {
     private tasksService: TasksService,
     private dataStorageService: DataStorageService,
     private profilesService: ProfilesService,
-    private fb: FormBuilder) {    
+    private fb: UntypedFormBuilder) {    
        }
 
   ngOnInit(): void {
@@ -85,12 +85,12 @@ export class NewTaskComponent implements OnInit {
   }
 
   onCheckboxChange(e: any) {
-    const daysArray: FormArray = this.taskForm.get('daysArray') as FormArray;
+    const daysArray: UntypedFormArray = this.taskForm.get('daysArray') as UntypedFormArray;
     if (e.target.checked) {
-      daysArray.push(new FormControl(e.target.value));
+      daysArray.push(new UntypedFormControl(e.target.value));
     } else {
       let i: number = 0;
-      daysArray.controls.forEach((item: FormControl) => {
+      daysArray.controls.forEach((item: UntypedFormControl) => {
         if (item.value == e.target.value) {
           daysArray.removeAt(i);
           return;
