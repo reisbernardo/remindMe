@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         this.alarmService.getAlarms();
         this.isLoading = false; 
         this.stepsService.goTo("RemindMe", 1);
-      }, 600 );
+      }, 800);
        
       },
       errorMessage => {

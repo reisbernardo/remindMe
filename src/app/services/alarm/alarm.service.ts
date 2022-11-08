@@ -52,9 +52,9 @@ export class AlarmService implements OnInit {
         setTimeout( () => { 
           let tasks = this.tasksService.getTasks();
           this.allAlarms.push({profile, tasks});
-        }, 350);
-      }, 250*index++)
-    });
+        }, 1000);
+      }, 1000*index++)
+    });    
     this.id = setInterval(() => {
       this.checkAlarms();
     }, 1000);
