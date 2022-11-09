@@ -2,9 +2,8 @@
 <hr>
 
 <app-alert-modal *ngIf="error" [message]="error" (close)="onHandleError()"></app-alert-modal>
-<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <input
             type="text"

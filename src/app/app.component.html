@@ -40,8 +40,8 @@
     </div>
     <h1>{{ getHeader() }}</h1>
   </div>
-
-  <div class="content">
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  <div class="content" *ngIf="!isLoading">
     <app-login *ngIf="getStep() == 0"></app-login>
     <app-home *ngIf="getStep() == 1"></app-home>
     <app-new-profile *ngIf="getStep() == 11"></app-new-profile>

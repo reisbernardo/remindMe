@@ -4,6 +4,7 @@ import { Observable, timeout } from 'rxjs';
 import { AlarmService } from 'src/app/services/alarm/alarm.service';
 import { AuthResponseData, AuthService } from 'src/app/services/auth/auth.service';
 import { DataStorageService } from 'src/app/services/data-storage/data-storage.service';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 import { StepsService } from 'src/app/services/steps/steps.service';
 
 
@@ -15,7 +16,6 @@ import { StepsService } from 'src/app/services/steps/steps.service';
 export class LoginComponent implements OnInit {
   signupForm: UntypedFormGroup;
   isLogin = true;
-  isLoading = false;
   error: string = null;
   changingMode = false;
 
@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     private stepsService: StepsService,
     private authService: AuthService,
     private dataStorageService: DataStorageService,
-    private alarmService: AlarmService){}
+    private alarmService: AlarmService,
+    private loadingService: LoadingService){}
 
   ngOnInit(): void {
       this.signupForm = new UntypedFormGroup({
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     if(!this.signupForm.valid) return; 
     this.error = null;
-    this.isLoading = true;
+    this.loadingService.startLoading()
 
     const email = this.signupForm.value.email;
     const password = this.signupForm.value.password;
@@ -52,7 +53,6 @@ export class LoginComponent implements OnInit {
       this.dataStorageService.fetchData('profiles');
       setTimeout( () => { 
         this.alarmService.getAlarms();
-        this.isLoading = false; 
         this.stepsService.goTo("RemindMe", 1);
       }, 800);
        
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
-        this.isLoading = false;
+        this.loadingService.stopLoading();
       });
   }
 

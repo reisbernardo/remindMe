@@ -35,6 +35,11 @@ img{
     display: contents;
 }
 
+app-loading-spinner{
+    text-align: center; 
+    display: block;
+}
+
 h1{
     font-weight: bolder;
     color: #414141CC;

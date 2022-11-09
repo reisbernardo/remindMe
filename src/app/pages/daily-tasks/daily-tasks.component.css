@@ -9,12 +9,12 @@ p{
     margin-top: 15px;
     margin-left: 10px;
     margin-bottom: 0px;
-    font-size: 25px;
+    font-size: 24px;
     color: #4A4A4A;
 }
 
 span{
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .inline {
@@ -38,9 +38,10 @@ span{
 }
 
 .task-button{
-    height: 90px;
+    height: 120px;
     display: inline-grid;
     text-align: initial;
+    padding: 5px;
 }
 
 .card {

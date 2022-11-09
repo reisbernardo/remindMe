@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './services/loading/loading.service';
 import { ModalService } from './services/modal/modal.service';
 import { StepsService } from './services/steps/steps.service';
 
@@ -10,8 +11,10 @@ import { StepsService } from './services/steps/steps.service';
 export class AppComponent {
   title = 'remindMe';
 
-  constructor(private stepsService: StepsService,
-    private modalService: ModalService) { 
+  constructor(
+    private stepsService: StepsService,
+    private modalService: ModalService,
+    private loadingService: LoadingService) { 
   }
 
   getStep(){
@@ -29,5 +32,9 @@ export class AppComponent {
       if(!confirmed) this.stepsService.goBack();
     }).catch(() => {return});
     else this.stepsService.goBack();
+  }
+
+  get isLoading(){
+    return this.loadingService.isLoading;
   }
 }

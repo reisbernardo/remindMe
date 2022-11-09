@@ -33,11 +33,6 @@ span{
     text-align: initial;
 }
 
-app-loading-spinner{
-    text-align: center; 
-    display: block;
-}
-
 .icon_add_profile{
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }

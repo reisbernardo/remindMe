@@ -6,6 +6,7 @@ import { TasksService } from '../tasks/tasks.service';
 import { Task } from '../tasks/task.model';
 import { Profile } from '../profiles/profile.model';
 import { ModalService } from '../modal/modal.service';
+import { LoadingService } from '../loading/loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class AlarmService implements OnInit {
     private dataStorageService: DataStorageService,
     private profilesService: ProfilesService,
     private tasksService: TasksService,
-    private modalService: ModalService) { }
+    private modalService: ModalService,
+    private loadingService: LoadingService) { }
 
   ngOnInit(): void {
 
@@ -52,9 +54,10 @@ export class AlarmService implements OnInit {
         setTimeout( () => { 
           let tasks = this.tasksService.getTasks();
           this.allAlarms.push({profile, tasks});
+          this.loadingService.stopLoading();
         }, 1000);
       }, 1000*index++)
-    });    
+    });
     this.id = setInterval(() => {
       this.checkAlarms();
     }, 1000);

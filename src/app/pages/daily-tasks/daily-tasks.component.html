@@ -27,8 +27,13 @@
                 [ngClass]="{'remedios-button-span': tarefa.task === 'Remédio',
                             'exercicios-button-span': tarefa.task === 'Exercício',
                             'recreacao-button-span': tarefa.task === 'Recreação'}" 
-            >{{tarefa.time}} - {{translateWeekDay(tarefa.daysArray)}}</span>
+            >{{tarefa.time}}</span>
         </div>
+        <span 
+        [ngClass]="{'remedios-button-span': tarefa.task === 'Remédio',
+                    'exercicios-button-span': tarefa.task === 'Exercício',
+                    'recreacao-button-span': tarefa.task === 'Recreação'}" 
+    >{{translateWeekDay(tarefa.daysArray)}}</span>
     </button>
 
     <button 
