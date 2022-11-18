@@ -13,6 +13,10 @@ p{
     color: #4A4A4A;
 }
 
+.card{
+    border: 0;
+}
+
 span{
     font-size: 20px;
 }
