@@ -3,21 +3,17 @@
   <div class="selects">
     <div class="input-task" *ngFor="let task of tasks">
       <div class="test">
-        <div
-          [ngClass]="{
+        <div [ngClass]="{
             remedios: task === 'Remédio',
             exercicio: task === 'Exercício',
             recreacao: task === 'Recreação'
-          }"
-        ></div>
+          }"></div>
 
-        <p
-          [ngClass]="{
+        <p [ngClass]="{
             remedios: task === 'Remédio',
             exercicio: task === 'Exercício',
             recreacao: task === 'Recreação'
-          }"
-        >
+          }">
           {{ task }}
         </p>
       </div>
@@ -28,48 +24,29 @@
 
   <div class="form-group">
     <p>Tarefa</p>
-    <input
-      type="text"
-      id="taskName"
-      formControlName="taskName"
-      class="form-control"
-      placeholder="Ex . Tomar remédio*"
-    />
+    <input type="text" id="taskName" formControlName="taskName" class="form-control"
+      placeholder="Ex . Tomar remédio*" />
   </div>
 
   <div class="form-group">
     <p>Frequência</p>
     <div class="align-center">
-      <input
-      type="time"
-      id="alarmTime"
-      name="alarmTime"
-      formControlName="time"
-      class="form-control frequency-form"
-    />
+      <input type="time" id="alarmTime" name="alarmTime" formControlName="time" class="form-control frequency-form" />
     </div>
 
     <div class="flex-display">
 
-    <div *ngFor="let data of days; let i = index" class="center-box">
-      <label>
-        {{ data.day }}
-      </label>
-        <input
-          type="checkbox"
-          [value]="data.id"
-          (change)="onCheckboxChange($event)"
-        />
-    </div>
+      <div *ngFor="let data of days; let i = index" class="center-box">
+        <label>
+          {{ data.day }}
+        </label>
+        <input type="checkbox" [value]="data.id" (change)="onCheckboxChange($event)" />
+      </div>
     </div>
   </div>
 
-  <div class="center bottom">
-    <button
-      class="btn btn-primary main-button margin"
-      type="submit"
-      [disabled]="taskForm.invalid"
-    >
+  <div class="center">
+    <button class="btn btn-primary main-button margin" type="submit" [disabled]="taskForm.invalid">
       <img src="../../../assets/plus.svg" alt="Adicionar Perfil" />
       {{ buttonLabel }}
     </button>
