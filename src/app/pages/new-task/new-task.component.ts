@@ -73,7 +73,6 @@ export class NewTaskComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("this.taskForm.value: ", this.taskForm.value)
     if(this.stepsService.previousStep == 3) {
       this.tasksService.editTasks(this.taskForm.value);
       this.alarmService.editAlarm(this.taskForm.value);

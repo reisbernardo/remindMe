@@ -4,6 +4,7 @@ import { StepsService } from 'src/app/services/steps/steps.service';
 import { TasksService } from 'src/app/services/tasks/tasks.service';
 import { Task } from 'src/app/services/tasks/task.model';
 import { AlarmService } from 'src/app/services/alarm/alarm.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-daily-tasks',
@@ -16,17 +17,25 @@ export class DailyTasksComponent implements OnInit {
     private stepsService: StepsService,
     private tasksService: TasksService,
     private dataStorageService: DataStorageService,
-    private alarmService: AlarmService) { }
+    private alarmService: AlarmService,
+    private modalService: ModalService,
+    ) { }
 
   ngOnInit(): void {
     if(this.getTarefas().length == 0) this.stepsService.goBack();
   }
 
   removeTarefa(tarefa: Task){
-    this.tasksService.removeTasks(tarefa);
-    this.alarmService.removeAlarm(tarefa);
-    this.dataStorageService.storeData("tasks");
-    if(this.getTarefas().length == 0) this.stepsService.goBack();
+    this.modalService.openModal('confirmation', 'Você realmente deseja remover esta tarefa?', 'Não', 'Sim')
+    .then((confirmed) => {
+      if(!confirmed) {
+        this.tasksService.removeTasks(tarefa);
+        this.alarmService.removeAlarm(tarefa);
+        this.dataStorageService.storeData("tasks");
+        if(this.getTarefas().length == 0) this.stepsService.goBack();
+      }
+    }).catch(() => {return});
+
   }
 
   getTarefas(){

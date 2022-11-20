@@ -23,10 +23,7 @@ export class DataStorageService {
       data += this.profilesService.getProfileIndex().toString();
     }
     
-    this.http.put('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth=' + this.authService.token, dataStore)
-    .subscribe(response => {
-      console.log('response store: ', response);
-    });
+    this.http.put('https://remindme-66310-default-rtdb.firebaseio.com/' + this.authService.userId + '/' + data +'.json?auth=' + this.authService.token, dataStore);
   }
 
   fetchData(data: string){

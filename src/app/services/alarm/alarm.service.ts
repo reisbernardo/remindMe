@@ -47,6 +47,7 @@ export class AlarmService implements OnInit {
   getAlarms(){
     this.allAlarms = [];
     let index = 0;
+    if(this.profilesService.getProfiles().length == 0) this.loadingService.stopLoading();
     this.profilesService.getProfiles().forEach(profile => {
       setTimeout(() => {
         this.profilesService.profileSelected = profile;
@@ -71,7 +72,6 @@ export class AlarmService implements OnInit {
         let minutes = this.date.getMinutes() > 9 ? this.date.getMinutes() : '0' + this.date.getMinutes();
         let hour = this.date.getHours() + ':' + minutes;
         if(task.daysArray.includes(String(this.date.getDay())) && task.time == hour && this.date.getSeconds() < 1){
-          console.log("Alarme de " + profile.profile.name + ' para ' + task.taskName + ' às ' + hour);
           this.modalService.openModal('alert', "Alarme de " + profile.profile.name + ': ' + task.taskName + ' às ' + hour)
           .then(() => {return}).catch(() => {return});
         }
